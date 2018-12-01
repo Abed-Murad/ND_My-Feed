@@ -14,12 +14,12 @@ import com.am.myfeed.fragment.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HeadlinesFeedFragment.OnFragmentInteractionListener} interface
+ * {@link HeadlinesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HeadlinesFeedFragment#newInstance} factory method to
+ * Use the {@link HeadlinesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HeadlinesFeedFragment extends BaseFragment {
+public class HeadlinesFragment extends BaseFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM2 = "param2";
@@ -30,7 +30,7 @@ public class HeadlinesFeedFragment extends BaseFragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public HeadlinesFeedFragment() {
+    public HeadlinesFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +40,11 @@ public class HeadlinesFeedFragment extends BaseFragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HeadlinesFeedFragment.
+     * @return A new instance of fragment HeadlinesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HeadlinesFeedFragment newInstance(String param1, String param2) {
-        HeadlinesFeedFragment fragment = new HeadlinesFeedFragment();
+    public static HeadlinesFragment newInstance(String param1, String param2) {
+        HeadlinesFragment fragment = new HeadlinesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,7 +66,7 @@ public class HeadlinesFeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_headlines_feed, container, false);
+        return inflater.inflate(R.layout.fragment_headlines, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

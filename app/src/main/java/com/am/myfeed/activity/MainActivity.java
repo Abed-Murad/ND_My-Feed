@@ -6,9 +6,9 @@ import android.support.design.widget.BottomNavigationView;
 
 import com.am.myfeed.R;
 import com.am.myfeed.databinding.ActivityMainBinding;
-import com.am.myfeed.favorite.FavoriteArticlesFragment;
-import com.am.myfeed.feed.UserFeedFragment;
-import com.am.myfeed.headlines.HeadlinesFeedFragment;
+import com.am.myfeed.favorite.FavoriteFragment;
+import com.am.myfeed.feed.FeedFragment;
+import com.am.myfeed.headlines.HeadlinesFragment;
 import com.am.myfeed.profile.ProfileFragment;
 import com.orhanobut.logger.Logger;
 
@@ -19,9 +19,9 @@ import androidx.navigation.ui.NavigationUI;
 import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 
 public class MainActivity extends BaseActivity implements
-        UserFeedFragment.OnFragmentInteractionListener,
-        HeadlinesFeedFragment.OnFragmentInteractionListener,
-        FavoriteArticlesFragment.OnFragmentInteractionListener,
+        FeedFragment.OnFragmentInteractionListener,
+        HeadlinesFragment.OnFragmentInteractionListener,
+        FavoriteFragment.OnFragmentInteractionListener,
         ProfileFragment.OnFragmentInteractionListener {
 
     private NavController mNavController;

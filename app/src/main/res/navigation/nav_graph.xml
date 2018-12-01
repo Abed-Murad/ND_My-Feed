@@ -7,9 +7,9 @@
     <!--START : Main Activity Fragments -->
     <fragment
         android:id="@+id/navigation_my_feed"
-        android:name="com.am.myfeed.feed.UserFeedFragment"
+        android:name="com.am.myfeed.feed.FeedFragment"
         android:label="@string/label_user_feed"
-        tools:layout="@layout/fragment_user_feed">
+        tools:layout="@layout/fragment_feed">
 
         <argument
             android:name="title"
@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_headlines"
-        android:name="com.am.myfeed.headlines.HeadlinesFeedFragment"
+        android:name="com.am.myfeed.headlines.HeadlinesFragment"
         android:label="@string/label_headlines"
-        tools:layout="@layout/fragment_headlines_feed">
+        tools:layout="@layout/fragment_headlines">
         <argument
             android:name="title"
             android:defaultValue="@string/title_headlines" />
@@ -27,9 +27,9 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.am.myfeed.favorite.FavoriteArticlesFragment"
+        android:name="com.am.myfeed.favorite.FavoriteFragment"
         android:label="@string/label_favorite_articles"
-        tools:layout="@layout/fragment_favorite_articles">
+        tools:layout="@layout/fragment_favorite">
         <argument
             android:name="title"
             android:defaultValue="@string/title_favorites" />

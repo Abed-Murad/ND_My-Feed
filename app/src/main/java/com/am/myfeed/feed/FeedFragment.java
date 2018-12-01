@@ -1,4 +1,4 @@
-package com.am.myfeed.favorite;
+package com.am.myfeed.feed;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,12 +14,12 @@ import com.am.myfeed.fragment.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FavoriteArticlesFragment.OnFragmentInteractionListener} interface
+ * {@link FeedFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FavoriteArticlesFragment#newInstance} factory method to
+ * Use the {@link FeedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FavoriteArticlesFragment extends BaseFragment {
+public class FeedFragment extends BaseFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM2 = "param2";
@@ -30,7 +30,7 @@ public class FavoriteArticlesFragment extends BaseFragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public FavoriteArticlesFragment() {
+    public FeedFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +40,11 @@ public class FavoriteArticlesFragment extends BaseFragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FavoriteArticlesFragment.
+     * @return A new instance of fragment FeedFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FavoriteArticlesFragment newInstance(String param1, String param2) {
-        FavoriteArticlesFragment fragment = new FavoriteArticlesFragment();
+    public static FeedFragment newInstance(String param1, String param2) {
+        FeedFragment fragment = new FeedFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,14 +66,16 @@ public class FavoriteArticlesFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite_articles, container, false);
+        return inflater.inflate(R.layout.fragment_feed, container, false);
     }
 
+    // TODO: Rename method, update argument and hook method into UI event
     public void onFragmentInteraction(String title) {
         if (mListener != null) {
             mListener.onFragmentInteraction(title);
         }
     }
+
 
     @Override
     public void onAttach(Context context) {

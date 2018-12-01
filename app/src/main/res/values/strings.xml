@@ -1,13 +1,16 @@
 <resources>
     <string name="app_name">My Feed</string>
 
+    <!--Ui Titles-->
     <string name="title_my_feed">My Feed</string>
     <string name="title_headlines">Headlines</string>
     <string name="title_favorites">Favorites</string>
     <string name="title_profile">Profile</string>
 
+    <!--Fragments Labels-->
     <string name="label_user_feed">My Feed</string>
     <string name="label_headlines">HeadLines</string>
     <string name="label_favorite_articles">Favorites</string>
     <string name="label_profile">Profile</string>
+
 </resources>
