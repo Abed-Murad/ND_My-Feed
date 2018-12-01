@@ -15,21 +15,21 @@
         android:id="@+id/userFeedFragment"
         android:name="com.am.myfeed.UserFeedFragment"
         android:label="fragment_user_feed"
-        tools:layout="@layout/fragment_user_feed" ></fragment>
+        tools:layout="@layout/fragment_user_feed" />
     <fragment
         android:id="@+id/headlinesFeedFragment"
         android:name="com.am.myfeed.HeadlinesFeedFragment"
         android:label="fragment_headlines_feed"
-        tools:layout="@layout/fragment_headlines_feed" ></fragment>
+        tools:layout="@layout/fragment_headlines_feed" />
     <fragment
         android:id="@+id/favoriteArticlesFragment"
         android:name="com.am.myfeed.FavoriteArticlesFragment"
         android:label="fragment_favorite_articles"
-        tools:layout="@layout/fragment_favorite_articles" ></fragment>
+        tools:layout="@layout/fragment_favorite_articles" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.am.myfeed.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" ></fragment>
+        tools:layout="@layout/fragment_profile" />
     <!--END : Main Activity Fragments -->
 </navigation>
