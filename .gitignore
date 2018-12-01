@@ -134,3 +134,4 @@ fabric.properties
 fastlane.json
 key.jks
 secrets.tar
+.idea/misc.xml
