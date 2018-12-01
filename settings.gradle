@@ -1,1 +1,1 @@
-include ':app', ':am_util'
+include ':app'

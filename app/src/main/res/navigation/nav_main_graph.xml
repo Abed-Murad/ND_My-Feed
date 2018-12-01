@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main_graph"
-    app:startDestination="@id/userFeedFragment">
+    app:startDestination="@id/navigation_my_feed">
     <!--Main Activity Container -->
     <activity
         android:id="@+id/mainActivity"
@@ -12,24 +12,24 @@
         tools:layout="@layout/activity_main" />
     <!--START : Main Activity Fragments -->
     <fragment
-        android:id="@+id/userFeedFragment"
+        android:id="@+id/navigation_my_feed"
         android:name="com.am.myfeed.UserFeedFragment"
-        android:label="fragment_user_feed"
+        android:label="@string/label_user_feed"
         tools:layout="@layout/fragment_user_feed" />
     <fragment
-        android:id="@+id/headlinesFeedFragment"
+        android:id="@+id/navigation_headlines"
         android:name="com.am.myfeed.HeadlinesFeedFragment"
-        android:label="fragment_headlines_feed"
+        android:label="@string/label_headlines"
         tools:layout="@layout/fragment_headlines_feed" />
     <fragment
-        android:id="@+id/favoriteArticlesFragment"
+        android:id="@+id/navigation_favorites"
         android:name="com.am.myfeed.FavoriteArticlesFragment"
-        android:label="fragment_favorite_articles"
+        android:label="@string/label_favorite_articles"
         tools:layout="@layout/fragment_favorite_articles" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/navigation_profile"
         android:name="com.am.myfeed.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="@string/label_profile"
         tools:layout="@layout/fragment_profile" />
     <!--END : Main Activity Fragments -->
 </navigation>

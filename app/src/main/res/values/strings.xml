@@ -6,6 +6,8 @@
     <string name="title_favorites">Favorites</string>
     <string name="title_profile">Profile</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_user_feed">fragment_user_feed</string>
+    <string name="label_headlines">fragment_headlines_feed</string>
+    <string name="label_favorite_articles">fragment_favorite_articles</string>
+    <string name="label_profile">fragment_profile</string>
 </resources>
