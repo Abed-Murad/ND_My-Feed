@@ -11,7 +11,11 @@ public class AMApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        setupLogger();
 
+    }
+
+    private void setupLogger() {
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true
                 .methodCount(0)         // (Optional) How many method line to show. Default 2
@@ -20,6 +24,5 @@ public class AMApplication extends Application {
                 .build();
 
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
-
     }
 }

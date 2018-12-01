@@ -32,12 +32,16 @@ public class MainActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        setupBottomNavigation();
+    }
+
+    private void setupBottomNavigation() {
         mBottomNavView = mBinding.bottomNavigationView;
         mNavController = Navigation.findNavController(this, R.id.navHostFragment);
         setupActionBarWithNavController(this, mNavController);
         NavigationUI.setupWithNavController(mBottomNavView, mNavController);
     }
-
 
 
     @Override
