@@ -1,4 +1,4 @@
-package com.am.myfeed;
+package com.am.myfeed.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

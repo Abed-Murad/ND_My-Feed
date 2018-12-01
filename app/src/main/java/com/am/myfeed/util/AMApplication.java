@@ -1,4 +1,4 @@
-package com.am.myfeed;
+package com.am.myfeed.util;
 
 import android.app.Application;
 

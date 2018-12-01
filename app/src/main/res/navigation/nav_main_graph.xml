@@ -7,28 +7,28 @@
     <!--Main Activity Container -->
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.am.myfeed.MainActivity"
+        android:name="com.am.myfeed.activity.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <!--START : Main Activity Fragments -->
     <fragment
         android:id="@+id/navigation_my_feed"
-        android:name="com.am.myfeed.UserFeedFragment"
+        android:name="com.am.myfeed.userfeed.UserFeedFragment"
         android:label="@string/label_user_feed"
         tools:layout="@layout/fragment_user_feed" />
     <fragment
         android:id="@+id/navigation_headlines"
-        android:name="com.am.myfeed.HeadlinesFeedFragment"
+        android:name="com.am.myfeed.headlines.HeadlinesFeedFragment"
         android:label="@string/label_headlines"
         tools:layout="@layout/fragment_headlines_feed" />
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.am.myfeed.FavoriteArticlesFragment"
+        android:name="com.am.myfeed.favoritearticle.FavoriteArticlesFragment"
         android:label="@string/label_favorite_articles"
         tools:layout="@layout/fragment_favorite_articles" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.am.myfeed.ProfileFragment"
+        android:name="com.am.myfeed.profile.ProfileFragment"
         android:label="@string/label_profile"
         tools:layout="@layout/fragment_profile" />
     <!--END : Main Activity Fragments -->

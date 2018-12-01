@@ -1,4 +1,4 @@
-package com.am.myfeed;
+package com.am.myfeed.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,13 +10,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 public class BaseActivity extends AppCompatActivity {
-    public static final String LABEL_USER_FEED = "fragment_user_feed";
-    public static final String LABEL_HEADLINES = "fragment_headlines_feed";
-    public static final String LABEL_FAVORITE_ARTiCLES = "fragment_favorite_articles";
-    public static final String LABEL_PROFILE = "fragment_profile";
 
     private ProgressDialog mProgressDialog;
-
 
     protected void showProgressDialog() {
         if (mProgressDialog == null) {
@@ -60,11 +55,7 @@ public class BaseActivity extends AppCompatActivity {
         hideProgressDialog();
     }
 
-    /**
-     * TODO (1) Find Out What is the use of the (View) Parameter in this method
-     *
-     * @param ???
-     */
+     // TODO (1) Find Out What is the use of the (View) Parameter in this method
     public void hideKeyboard(View view) {
         final InputMethodManager inputMethodManager
                 = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
