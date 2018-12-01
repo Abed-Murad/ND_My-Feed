@@ -10,6 +10,7 @@ import com.am.my_feed.favorite.FavoriteFragment;
 import com.am.my_feed.feed.FeedFragment;
 import com.am.my_feed.headlines.HeadlinesFragment;
 import com.am.my_feed.profile.ProfileFragment;
+import com.am.my_feed.search.SearchFragment;
 import com.orhanobut.logger.Logger;
 
 import androidx.navigation.NavController;
@@ -22,7 +23,8 @@ public class MainActivity extends BaseActivity implements
         FeedFragment.OnFragmentInteractionListener,
         HeadlinesFragment.OnFragmentInteractionListener,
         FavoriteFragment.OnFragmentInteractionListener,
-        ProfileFragment.OnFragmentInteractionListener {
+        ProfileFragment.OnFragmentInteractionListener ,
+        SearchFragment.OnFragmentInteractionListener{
 
     private NavController mNavController;
     private BottomNavigationView mBottomNavView;
