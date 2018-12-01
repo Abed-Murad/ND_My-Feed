@@ -1,7 +1,6 @@
 package com.am.myfeed.activity;
 
 import android.databinding.DataBindingUtil;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 
@@ -16,6 +15,8 @@ import com.orhanobut.logger.Logger;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+
+import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 
 public class MainActivity extends BaseActivity implements
         UserFeedFragment.OnFragmentInteractionListener,
@@ -33,12 +34,14 @@ public class MainActivity extends BaseActivity implements
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mBottomNavView = mBinding.bottomNavigationView;
         mNavController = Navigation.findNavController(this, R.id.navHostFragment);
+        setupActionBarWithNavController(this, mNavController);
         NavigationUI.setupWithNavController(mBottomNavView, mNavController);
     }
 
 
+
     @Override
-    public void onFragmentInteraction(Uri uri) {
-        Logger.d("onFragmentInteraction:"+uri.toString());
+    public void onFragmentInteraction(String fragmentTitle) {
+        Logger.d(fragmentTitle);
     }
 }

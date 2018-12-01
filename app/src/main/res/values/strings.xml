@@ -6,8 +6,8 @@
     <string name="title_favorites">Favorites</string>
     <string name="title_profile">Profile</string>
 
-    <string name="label_user_feed">fragment_user_feed</string>
-    <string name="label_headlines">fragment_headlines_feed</string>
-    <string name="label_favorite_articles">fragment_favorite_articles</string>
-    <string name="label_profile">fragment_profile</string>
+    <string name="label_user_feed">My Feed</string>
+    <string name="label_headlines">HeadLines</string>
+    <string name="label_favorite_articles">Favorites</string>
+    <string name="label_profile">Profile</string>
 </resources>
