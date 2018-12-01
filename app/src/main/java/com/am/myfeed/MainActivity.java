@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
-import com.am.am_util.activity.BaseActivity;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
