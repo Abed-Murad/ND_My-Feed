@@ -16,14 +16,13 @@ public class MainActivity extends BaseActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_my_feed);
+                case R.id.navigation_my_feed:
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_headlines);
+                case R.id.navigation_headlines:
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_favorites);
+                case R.id.navigation_favorites:
+                    return true;
+                case R.id.navigation_profile:
                     return true;
             }
             return false;
