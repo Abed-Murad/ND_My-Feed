@@ -13,7 +13,7 @@
     <!--START : Main Activity Fragments -->
     <fragment
         android:id="@+id/navigation_my_feed"
-        android:name="com.am.myfeed.userfeed.UserFeedFragment"
+        android:name="com.am.myfeed.feed.UserFeedFragment"
         android:label="@string/label_user_feed"
         tools:layout="@layout/fragment_user_feed" />
     <fragment
@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_headlines_feed" />
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.am.myfeed.favoritearticle.FavoriteArticlesFragment"
+        android:name="com.am.myfeed.favorite.FavoriteArticlesFragment"
         android:label="@string/label_favorite_articles"
         tools:layout="@layout/fragment_favorite_articles" />
     <fragment
