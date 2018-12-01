@@ -4,31 +4,36 @@
     package="com.am.my_feed">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+        android:name=".util.AMApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:name="com.am.my_feed.util.AMApplication"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- START Launcher Screen -->
         <activity
-            android:name="com.am.my_feed.activity.SplashActivity"
+            android:name=".intro.SplashActivity"
             android:launchMode="singleTop"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <!-- END Launcher Screen -->
 
         <activity
-            android:name="com.am.my_feed.activity.MainActivity"
-            android:label="@string/app_name"/>
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".intro.WelcomeActivity"
+            android:theme="@style/TranslucentStatusBarTheme"/>
     </application>
 
 </manifest>

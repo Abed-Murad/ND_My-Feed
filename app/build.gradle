@@ -37,7 +37,6 @@ dependencies {
     /* Logger */
     implementation 'com.orhanobut:logger:2.2.0'
 
-
     /* Test */
     implementation 'com.android.support:support-v4:28.0.0'
     testImplementation 'junit:junit:4.12'
