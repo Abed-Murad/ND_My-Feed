@@ -7,7 +7,7 @@
     <!--START : Main Activity Fragments -->
     <fragment
         android:id="@+id/navigation_my_feed"
-        android:name="com.am.myfeed.feed.FeedFragment"
+        android:name="com.am.my_feed.feed.FeedFragment"
         android:label="@string/label_user_feed"
         tools:layout="@layout/fragment_feed">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_headlines"
-        android:name="com.am.myfeed.headlines.HeadlinesFragment"
+        android:name="com.am.my_feed.headlines.HeadlinesFragment"
         android:label="@string/label_headlines"
         tools:layout="@layout/fragment_headlines">
         <argument
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.am.myfeed.favorite.FavoriteFragment"
+        android:name="com.am.my_feed.favorite.FavoriteFragment"
         android:label="@string/label_favorite_articles"
         tools:layout="@layout/fragment_favorite">
         <argument
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.am.myfeed.profile.ProfileFragment"
+        android:name="com.am.my_feed.profile.ProfileFragment"
         android:label="@string/label_profile"
         tools:layout="@layout/fragment_profile">
         <argument

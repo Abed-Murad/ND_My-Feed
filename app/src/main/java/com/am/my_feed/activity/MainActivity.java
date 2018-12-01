@@ -1,15 +1,15 @@
-package com.am.myfeed.activity;
+package com.am.my_feed.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 
-import com.am.myfeed.R;
-import com.am.myfeed.databinding.ActivityMainBinding;
-import com.am.myfeed.favorite.FavoriteFragment;
-import com.am.myfeed.feed.FeedFragment;
-import com.am.myfeed.headlines.HeadlinesFragment;
-import com.am.myfeed.profile.ProfileFragment;
+import com.am.my_feed.R;
+import com.am.my_feed.databinding.ActivityMainBinding;
+import com.am.my_feed.favorite.FavoriteFragment;
+import com.am.my_feed.feed.FeedFragment;
+import com.am.my_feed.headlines.HeadlinesFragment;
+import com.am.my_feed.profile.ProfileFragment;
 import com.orhanobut.logger.Logger;
 
 import androidx.navigation.NavController;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.am.myfeed">
+    package="com.am.my_feed">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
@@ -10,13 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:name=".util.AMApplication"
+        android:name="com.am.my_feed.util.AMApplication"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- START Launcher Screen -->
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.am.my_feed.activity.SplashActivity"
             android:launchMode="singleTop"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -27,7 +27,7 @@
         <!-- END Launcher Screen -->
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.am.my_feed.activity.MainActivity"
             android:label="@string/app_name"/>
     </application>
 

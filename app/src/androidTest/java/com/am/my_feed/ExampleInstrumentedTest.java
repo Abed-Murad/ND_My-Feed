@@ -1,4 +1,4 @@
-package com.am.myfeed;
+package com.am.my_feed;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

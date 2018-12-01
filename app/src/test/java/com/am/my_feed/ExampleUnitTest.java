@@ -1,4 +1,4 @@
-package com.am.myfeed;
+package com.am.my_feed;
 
 import org.junit.Test;
 

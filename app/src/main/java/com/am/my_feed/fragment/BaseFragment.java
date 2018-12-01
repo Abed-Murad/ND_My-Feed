@@ -1,4 +1,4 @@
-package com.am.myfeed.fragment;
+package com.am.my_feed.fragment;
 
 import android.support.v4.app.Fragment;
 

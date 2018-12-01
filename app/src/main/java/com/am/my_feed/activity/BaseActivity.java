@@ -1,4 +1,4 @@
-package com.am.myfeed.activity;
+package com.am.my_feed.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
