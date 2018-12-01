@@ -24,7 +24,18 @@
             android:name="title"
             android:defaultValue="@string/title_headlines" />
 
+
     </fragment>
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.am.myfeed.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search">
+        <argument
+            android:name="title"
+            android:defaultValue="@string/title_search" />
+    </fragment>
+
     <fragment
         android:id="@+id/navigation_favorites"
         android:name="com.am.my_feed.favorite.FavoriteFragment"
