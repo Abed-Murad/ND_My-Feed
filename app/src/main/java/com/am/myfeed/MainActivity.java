@@ -5,18 +5,21 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.am.am_util.activity.BaseActivity;
 
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class MainActivity extends BaseActivity implements UserFeedFragment.OnFragmentInteractionListener, HeadlinesFeedFragment.OnFragmentInteractionListener, FavoriteArticlesFragment.OnFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener {
 
     private NavController mNavController;
+    BottomNavigationView bottonNavView;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -45,8 +48,17 @@ public class MainActivity extends BaseActivity implements UserFeedFragment.OnFra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mNavController = Navigation.findNavController(MainActivity.this, R.id.fragment_nav_host);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mNavController.addOnNavigatedListener(new NavController.OnNavigatedListener() {
+            @Override
+            public void onNavigated(@NonNull NavController controller, @NonNull NavDestination destination) {
+                destination.getId();
+                destination.getLabel().toString();
+                destination.getNavigator();
+                destination.getParent().getStartDestination();
+            }
+        });
+        bottonNavView = (BottomNavigationView) findViewById(R.id.navigation);
+        bottonNavView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     @Override
