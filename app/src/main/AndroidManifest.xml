@@ -11,19 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- START Launcher Screen -->
         <activity
             android:name=".SplashActivity"
             android:launchMode="singleTop"
             android:theme="@style/SplashTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <!-- END Launcher Screen -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"/>
     </application>
 
 </manifest>
