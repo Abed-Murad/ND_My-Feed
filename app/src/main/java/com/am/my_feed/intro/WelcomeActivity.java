@@ -10,13 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.am.my_feed.R;
-import com.am.my_feed.main.MainActivity;
 import com.am.my_feed.databinding.ActivityWelcomeBinding;
 import com.am.my_feed.databinding.FragmentWelcomeBinding;
+import com.am.my_feed.main.MainActivity;
 import com.am.my_feed.profile.ProfileFragment;
 
 public class WelcomeActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener {
@@ -45,7 +43,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
 
     }
 
-    private class WelcomePagerAdapter extends FragmentPagerAdapter {
+    public static class WelcomePagerAdapter extends FragmentPagerAdapter {
 
         public WelcomePagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -84,10 +82,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
     public static class WelcomeFragment extends Fragment {
 
         private FragmentWelcomeBinding mBinding;
-        private TextView mTitleTextView;
-        private TextView mSubTitleTextView;
-        private ImageView mIconImageView;
-
+        
         private String mTitle;
         private String mSubtitle;
         private int mIcon;

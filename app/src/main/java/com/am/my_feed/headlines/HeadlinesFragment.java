@@ -1,6 +1,7 @@
 package com.am.my_feed.headlines;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
+import com.am.my_feed.databinding.FragmentHeadlinesBinding;
+import com.am.my_feed.intro.WelcomeActivity;
 import com.am.my_feed.util.BaseFragment;
 
 
@@ -24,6 +27,7 @@ public class HeadlinesFragment extends BaseFragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM2 = "param2";
 
+    private FragmentHeadlinesBinding mBinding;
     // TODO: Rename and change types of parameters
     private String mTitleParam;
     private String mParam2;
@@ -65,8 +69,11 @@ public class HeadlinesFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_headlines, container, false);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_headlines, container, false);
+        WelcomeActivity.WelcomePagerAdapter adapter = new WelcomeActivity.WelcomePagerAdapter(getChildFragmentManager());
+        mBinding.viewPager.setAdapter(adapter);
+        mBinding.tabs.setViewPager(mBinding.viewPager);
+        return mBinding.getRoot();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
