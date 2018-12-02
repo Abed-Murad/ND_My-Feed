@@ -3,6 +3,7 @@
 
     <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="?android:attr/windowBackground"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -28,7 +29,7 @@
             android:layout_marginTop="16dp"
             app:dotsColor="@color/colorAccent"
             app:dotsCornerRadius="8dp"
-            app:dotsSize="16dp"
+            app:dotsSize="@dimen/small"
             app:dotsSpacing="4dp"
             app:dotsWidthFactor="2.5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,12 +41,14 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="8dp"
             android:padding="16dp"
             android:text="@string/title_log_in"
-            app:layout_constraintBottom_toTopOf="@+id/guestBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dotsIndicator" />
 
         <Button
             android:id="@+id/guestBtn"
@@ -54,11 +57,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="24dp"
             android:text="@string/title_continue_as_a_guest"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
