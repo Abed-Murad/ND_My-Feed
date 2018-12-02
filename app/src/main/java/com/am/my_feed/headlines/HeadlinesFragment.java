@@ -3,14 +3,17 @@ package com.am.my_feed.headlines;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
 import com.am.my_feed.databinding.FragmentHeadlinesBinding;
-import com.am.my_feed.intro.WelcomeActivity;
+import com.am.my_feed.feed.FeedFragment;
 import com.am.my_feed.util.BaseFragment;
 
 
@@ -23,7 +26,9 @@ import com.am.my_feed.util.BaseFragment;
  * create an instance of this fragment.
  */
 public class HeadlinesFragment extends BaseFragment {
-    // TODO: Rename parameter arguments, choose names that match
+    private final static String fragmentsTitles[] = {"Business", "entertainment", "general", "health", "general", "sports", "technology"};
+
+    // TODO: Rename parameter arguments, choose mFragmentsTitles that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM2 = "param2";
 
@@ -70,9 +75,9 @@ public class HeadlinesFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_headlines, container, false);
-        WelcomeActivity.WelcomePagerAdapter adapter = new WelcomeActivity.WelcomePagerAdapter(getChildFragmentManager());
-        mBinding.viewPager.setAdapter(adapter);
-        mBinding.tabs.setViewPager(mBinding.viewPager);
+        HeadlinesAdapter adapter = new HeadlinesAdapter(getChildFragmentManager(), fragmentsTitles);
+        mBinding.headlinesDeckPager.setAdapter(adapter);
+        mBinding.tabs.setViewPager(mBinding.headlinesDeckPager);
         return mBinding.getRoot();
     }
 
@@ -113,5 +118,48 @@ public class HeadlinesFragment extends BaseFragment {
      */
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String title);
+    }
+
+    private static class HeadlinesAdapter extends FragmentPagerAdapter {
+        private String mFragmentsTitles[];
+
+
+        public HeadlinesAdapter(FragmentManager fragmentManager, String fragmentsTitles[]) {
+            super(fragmentManager);
+            this.mFragmentsTitles = fragmentsTitles;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return FeedFragment.newInstance("", "");
+                case 1:
+                    return FeedFragment.newInstance("", "");
+                case 2:
+                    return FeedFragment.newInstance("", "");
+                case 3:
+                    return FeedFragment.newInstance("", "");
+                case 4:
+                    return FeedFragment.newInstance("", "");
+                case 5:
+                    return FeedFragment.newInstance("", "");
+                case 6:
+                    return FeedFragment.newInstance("", "");
+                default:
+                    return FeedFragment.newInstance("", "");
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentsTitles.length;
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentsTitles[position];
+        }
     }
 }

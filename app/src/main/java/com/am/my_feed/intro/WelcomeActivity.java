@@ -43,7 +43,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
 
     }
 
-    public static class WelcomePagerAdapter extends FragmentPagerAdapter {
+    private static class WelcomePagerAdapter extends FragmentPagerAdapter {
 
         public WelcomePagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -82,7 +82,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
     public static class WelcomeFragment extends Fragment {
 
         private FragmentWelcomeBinding mBinding;
-        
+
         private String mTitle;
         private String mSubtitle;
         private int mIcon;
