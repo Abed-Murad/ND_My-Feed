@@ -51,7 +51,15 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
 
         @Override
         public Fragment getItem(int position) {
-            return ArrayListFragment.newInstance(position);
+            switch (position) {
+                case 0:
+                    return ArrayListFragment.newInstance("First", "First Subtitle", R.drawable.ic_bookmark);
+                case 1:
+                    return ArrayListFragment.newInstance("Second", "Second Subtitle", R.drawable.ic_bookmark);
+                case 2:
+                    return ArrayListFragment.newInstance("Third", "Third Subtitle", R.drawable.ic_bookmark);
+            }
+            return null;
         }
 
         @Override
@@ -88,7 +96,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            mTitle = getArguments() != null ? getArguments().getString("title") :"No Title Found";
+            mTitle = getArguments() != null ? getArguments().getString("title") : "No Title Found";
             mSubtitle = getArguments() != null ? getArguments().getString("subtitle") : "No Subtitle Found";
             mIcon = getArguments() != null ? getArguments().getInt("icon") : 1;
         }
@@ -99,10 +107,10 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
          */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.fragment_pager_welcome, container, false);
-            View tv = v.findViewById(R.id.text);
-            ((TextView) tv).setText("Fragment #" + mNum);
-            return v;
+            View rootView = inflater.inflate(R.layout.fragment_pager_welcome, container, false);
+            View tv = rootView.findViewById(R.id.title);
+            ((TextView) tv).setText("Fragment #" + mTitle);
+            return rootView;
         }
 
 
