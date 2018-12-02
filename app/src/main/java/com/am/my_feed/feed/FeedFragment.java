@@ -4,6 +4,7 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +73,8 @@ public class FeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
         mFeedRecyclerView = mBinding.userFeedRecyclerView;
-        mFeedRecyclerView.setAdapter(new FeedAdapter());
+        mFeedRecyclerView.setAdapter(new FeedAdapter(getContext(), "Header", "Footer"));
+        mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return mBinding.getRoot();
     }
 

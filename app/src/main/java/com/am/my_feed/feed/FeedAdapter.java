@@ -11,7 +11,7 @@ import com.am.my_feed.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedAdapter extends RecyclerView.Adapter {
+public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
     private static final int TYPE_FOOTER = 2;
@@ -66,9 +66,11 @@ public class FeedAdapter extends RecyclerView.Adapter {
             footerHolder.SetFooterData();
 
         } else if (holder instanceof ViewHolder) {
+            /*
             final Article article = getItem(position - 1);
             ViewHolder genericViewHolder = (ViewHolder) holder;
             genericViewHolder.bindData(article);
+            */
         }
     }
 
@@ -84,7 +86,7 @@ public class FeedAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return mArticleList == null ? 2 : mArticleList.size() + 2;
+        return mArticleList == null ? 2 : mArticleList.size() + 2;//TODO:change the 4 to 2
     }
 
     private boolean isPositionHeader(int position) {
