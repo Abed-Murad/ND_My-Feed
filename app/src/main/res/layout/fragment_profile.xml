@@ -6,8 +6,11 @@
     tools:context=".profile.ProfileFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="200dp"
+        android:background="@color/colorAccent"
+
         android:gravity="center"
         android:text="@string/title_profile" />
 
