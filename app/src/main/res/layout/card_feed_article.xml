@@ -15,9 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/articleImage"
                 android:layout_width="393dp"
                 android:layout_height="229dp"
                 android:scaleType="centerCrop"
@@ -27,7 +26,7 @@
                 android:src="@drawable/dummy_news_cover" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+                android:id="@+id/addToFavoriteFab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -35,11 +34,11 @@
                 android:clickable="true"
                 app:srcCompat="@drawable/ic_bookmark_empty"
                 card_view:fabSize="normal"
-                card_view:layout_constraintBottom_toBottomOf="@+id/imageView"
+                card_view:layout_constraintBottom_toBottomOf="@+id/articleImage"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintHorizontal_bias="0.975"
                 card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/imageView" />
+                card_view:layout_constraintTop_toBottomOf="@+id/articleImage" />
 
             <TextView
                 android:id="@+id/sourceTextView"
@@ -48,11 +47,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/imageView"
+                card_view:layout_constraintTop_toBottomOf="@+id/articleImage"
                 android:text="CNN" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/articleTextView"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_height="wrap_content"
@@ -63,7 +62,7 @@
                 android:text="Article Title" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/timeIcon"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="8dp"
@@ -72,19 +71,19 @@
                 app:srcCompat="@drawable/ic_time"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/textView2" />
+                card_view:layout_constraintTop_toBottomOf="@+id/articleTextView" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/timeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginBottom="1dp"
                 android:text="16 hours ago"
                 android:textSize="@dimen/micro"
-                card_view:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                card_view:layout_constraintStart_toEndOf="@+id/imageView2"
-                card_view:layout_constraintTop_toTopOf="@+id/imageView2" />
+                card_view:layout_constraintBottom_toBottomOf="@+id/timeIcon"
+                card_view:layout_constraintStart_toEndOf="@+id/timeIcon"
+                card_view:layout_constraintTop_toTopOf="@+id/timeIcon" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
