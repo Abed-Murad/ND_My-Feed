@@ -86,7 +86,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mArticleList == null ? 2 : mArticleList.size() + 2;//TODO:change the 4 to 2
+        return mArticleList == null ? 2 : mArticleList.size() + 10;//TODO:change the 4 to 2
     }
 
     private boolean isPositionHeader(int position) {
