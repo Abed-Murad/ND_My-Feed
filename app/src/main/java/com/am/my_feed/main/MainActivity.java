@@ -1,4 +1,4 @@
-package com.am.my_feed.activity;
+package com.am.my_feed.main;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import com.am.my_feed.feed.FeedFragment;
 import com.am.my_feed.headlines.HeadlinesFragment;
 import com.am.my_feed.profile.ProfileFragment;
 import com.am.my_feed.search.SearchFragment;
+import com.am.my_feed.util.BaseActivity;
 import com.orhanobut.logger.Logger;
 
 import androidx.navigation.NavController;

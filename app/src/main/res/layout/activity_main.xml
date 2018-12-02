@@ -7,7 +7,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
+        tools:context=".main.MainActivity">
 
         <!--The app:defaultNavHost="true" attribute ensures that your NavHostFragment intercepts the system Back button-->
         <fragment

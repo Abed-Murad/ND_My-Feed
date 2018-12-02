@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
-import com.am.my_feed.fragment.BaseFragment;
+import com.am.my_feed.util.BaseFragment;
 
 
 /**

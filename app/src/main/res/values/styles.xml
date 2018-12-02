@@ -13,6 +13,7 @@
         <item name="android:windowBackground">@drawable/bg_splash</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
     <!--Translucent Status Bar Theme-->
     <style name="TranslucentStatusBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>

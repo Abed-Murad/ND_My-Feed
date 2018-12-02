@@ -1,14 +1,17 @@
 package com.am.my_feed.feed;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
-import com.am.my_feed.fragment.BaseFragment;
+import com.am.my_feed.databinding.FragmentFeedBinding;
+import com.am.my_feed.util.BaseFragment;
 
 
 /**
@@ -23,6 +26,9 @@ public class FeedFragment extends BaseFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM2 = "param2";
+
+    FragmentFeedBinding mBinding;
+    RecyclerView mFeedRecyclerView;
 
     // TODO: Rename and change types of parameters
     private String mTitleParam;
@@ -63,10 +69,11 @@ public class FeedFragment extends BaseFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
+        mFeedRecyclerView = mBinding.userFeedRecyclerView;
+        mFeedRecyclerView.setAdapter(new FeedAdapter());
+        return mBinding.getRoot();
     }
 
     // TODO: Rename method, update argument and hook method into UI event

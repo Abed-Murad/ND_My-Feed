@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.am.my_feed.activity.BaseActivity;
-import com.am.my_feed.activity.MainActivity;
+import com.am.my_feed.util.BaseActivity;
 
 
 public class SplashActivity extends BaseActivity {

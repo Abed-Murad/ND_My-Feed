@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.am.my_feed.R;
-import com.am.my_feed.activity.MainActivity;
+import com.am.my_feed.main.MainActivity;
 import com.am.my_feed.databinding.ActivityWelcomeBinding;
 import com.am.my_feed.databinding.FragmentWelcomeBinding;
 import com.am.my_feed.profile.ProfileFragment;

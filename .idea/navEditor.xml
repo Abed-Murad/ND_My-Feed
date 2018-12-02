@@ -56,13 +56,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="searchFragment">
+                  <entry key="navigation_search">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="12" />
-                            <option name="y" value="280" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
