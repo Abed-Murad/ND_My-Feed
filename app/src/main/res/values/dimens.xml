@@ -11,5 +11,6 @@
     <dimen name="large">22sp</dimen>
     <!--elevation-->
     <dimen name="elevation_card">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

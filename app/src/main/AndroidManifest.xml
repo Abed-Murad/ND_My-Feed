@@ -31,10 +31,18 @@
         <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name" />
-
         <activity
             android:name=".intro.WelcomeActivity"
-            android:theme="@style/TranslucentStatusBarTheme"/>
+            android:theme="@style/TranslucentStatusBarTheme" />
+        <activity
+            android:name=".article.ArticleDetailsActivity"
+            android:label="@string/title_activity_article_details"
+            android:parentActivityName=".main.MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.am.my_feed.main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
