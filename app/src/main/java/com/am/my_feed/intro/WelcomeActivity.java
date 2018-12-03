@@ -18,8 +18,8 @@ import com.am.my_feed.main.MainActivity;
 import com.am.my_feed.profile.ProfileFragment;
 
 public class WelcomeActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener {
-    private final static int NUM_ITEMS = 4;
 
+    private final static int NUM_WELCOME_FRAGMENT = 4;
     private ActivityWelcomeBinding mBinding;
 
     @Override
@@ -33,7 +33,6 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
                 startActivity(intent);
             }
         });
-
         mBinding.deckPager.setAdapter(new WelcomePagerAdapter(getSupportFragmentManager()));
         mBinding.dotsIndicator.setViewPager(mBinding.deckPager);
     }
@@ -62,7 +61,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
                             "My feed provide an offline mode so you can save your favorite articles and read them latter ", R.drawable.ic_bookmark);
                 case 2:
                     return WelcomeFragment.newInstance("Search",
-                            "Search articles that mention a specific topic or keyword, we index every article published by over 30,000 news sources and blogs." ,
+                            "Search articles that mention a specific topic or keyword, we index every article published by over 30,000 news sources and blogs.",
                             R.drawable.ic_search);
                 case 3:
                     return WelcomeFragment.newInstance("Keep in touch",
@@ -74,13 +73,15 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
 
         @Override
         public int getCount() {
-            return NUM_ITEMS;
+            return NUM_WELCOME_FRAGMENT;
         }
     }
 
 
     public static class WelcomeFragment extends Fragment {
-
+        public static final String KEY_TITLE = "title";
+        public static final String KEY_SUBTITLE = "subtitle";
+        public static final String KEY_ICON = "icon";
         private FragmentWelcomeBinding mBinding;
 
         private String mTitle;
@@ -93,12 +94,11 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
          */
         public static WelcomeFragment newInstance(String title, String subtitle, int icon) {
             WelcomeFragment welcomeFragment = new WelcomeFragment();
-
-            // Supply num input as an argument.
+            // Supply Fragment arguments.
             Bundle args = new Bundle();
-            args.putString("title", title);
-            args.putString("subtitle", subtitle);
-            args.putInt("icon", icon);
+            args.putString(KEY_TITLE, title);
+            args.putString(KEY_SUBTITLE, subtitle);
+            args.putInt(KEY_ICON, icon);
             welcomeFragment.setArguments(args);
             return welcomeFragment;
         }
@@ -109,9 +109,9 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            mTitle = getArguments() != null ? getArguments().getString("title") : "No Title Found";
-            mSubtitle = getArguments() != null ? getArguments().getString("subtitle") : "No Subtitle Found";
-            mIcon = getArguments() != null ? getArguments().getInt("icon") : 1;
+            mTitle = getArguments() != null ? getArguments().getString(KEY_TITLE) : "No Title Found";
+            mSubtitle = getArguments() != null ? getArguments().getString(KEY_SUBTITLE) : "No Subtitle Found";
+            mIcon = getArguments() != null ? getArguments().getInt(KEY_ICON) : -1;
         }
 
         /**
