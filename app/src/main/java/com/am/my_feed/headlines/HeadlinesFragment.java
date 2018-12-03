@@ -26,14 +26,11 @@ import com.am.my_feed.util.BaseFragment;
  * create an instance of this fragment.
  */
 public class HeadlinesFragment extends BaseFragment {
-    private final static String fragmentsTitles[] = {"Business", "entertainment", "general", "health", "general", "sports", "technology"};
-
-    // TODO: Rename parameter arguments, choose mFragmentsTitles that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private final static String fragmentsTitles[] =
+            {"Business", "entertainment", "general", "health", "general", "sports", "technology"};
     private static final String ARG_PARAM2 = "param2";
 
     private FragmentHeadlinesBinding mBinding;
-    // TODO: Rename and change types of parameters
     private String mTitleParam;
     private String mParam2;
 
@@ -43,15 +40,6 @@ public class HeadlinesFragment extends BaseFragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HeadlinesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HeadlinesFragment newInstance(String param1, String param2) {
         HeadlinesFragment fragment = new HeadlinesFragment();
         Bundle args = new Bundle();
