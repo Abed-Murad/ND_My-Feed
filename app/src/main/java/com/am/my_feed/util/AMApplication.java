@@ -12,7 +12,6 @@ public class AMApplication extends Application {
     public void onCreate() {
         super.onCreate();
         setupLogger();
-
     }
 
     private void setupLogger() {

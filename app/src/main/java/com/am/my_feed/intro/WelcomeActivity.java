@@ -57,8 +57,8 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
                             getString(R.string.subtitle_favourite_articles),
                             R.drawable.ic_bookmark);
                 case 2:
-                    return WelcomeFragment.newInstance(getString(R.string.title_search),
-                            getString(R.string.title_search_for_articles),
+                    return WelcomeFragment.newInstance(getString(R.string.title_search_for_articles),
+                            getString(R.string.subtitle_search),
                             R.drawable.ic_search);
                 case 3:
                     return WelcomeFragment.newInstance(getString(R.string.title_keep_in_touch),
