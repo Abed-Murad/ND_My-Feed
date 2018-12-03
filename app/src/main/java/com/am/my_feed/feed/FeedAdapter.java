@@ -23,9 +23,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private OnArticleClickListener mArticleClickListener;
 
 
-    public FeedAdapter(Context context) {
+    public FeedAdapter(Context context , OnArticleClickListener articleClickListener) {
         this.mContext = context;
         this.mArticleList = new ArrayList<>();
+        this.mArticleClickListener = articleClickListener;
         this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -68,21 +69,19 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void SetOnItemClickListener(final OnArticleClickListener mItemClickListener) {
-        /*
-        this.mArticleClickListener = mItemClickListener; //TODO: Re Activate the OnArticleClickListener
-        */
+        this.mArticleClickListener = mItemClickListener;
     }
 
     public interface OnArticleClickListener {
+        //TODO: use this method in the real project data not the parameter-less onItemClick()
         void onItemClick(View view, int position, Article model);
+        void onItemClick();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(final View itemView) {
             super(itemView);
-             /*
-            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick(itemView, getAdapterPosition(), mArticleList.get(getAdapterPosition() - 1)));  //TODO: Re Activate the OnArticleClickListener
-             */
+            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick());
         }
 
         private void bindData(Article article) { }

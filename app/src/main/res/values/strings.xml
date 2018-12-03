@@ -32,8 +32,10 @@
     <string name="title_keywords">Keywords</string>
     <string name="title_sources">Sources</string>
     <string name="title_categories">Categories</string>
-    <string name="description_profile_image">User Image</string>
     <string name="title_activity_article_details">ArticleDetailsActivity</string>
+    <string name="description_profile_image">User Image</string>
+    <string name="hint_search">Search…</string>
+
 
 
 </resources>

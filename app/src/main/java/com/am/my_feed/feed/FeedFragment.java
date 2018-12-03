@@ -1,9 +1,9 @@
 package com.am.my_feed.feed;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
+import com.am.my_feed.article.Article;
+import com.am.my_feed.article.ArticleDetailsActivity;
 import com.am.my_feed.databinding.FragmentFeedBinding;
 import com.am.my_feed.util.BaseFragment;
 
@@ -53,7 +55,18 @@ public class FeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
         mFeedRecyclerView = mBinding.userFeedRecyclerView;
-        mFeedRecyclerView.setAdapter(new FeedAdapter(getContext()));
+        mFeedRecyclerView.setAdapter(new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
+            @Override
+            public void onItemClick(View view, int position, Article model) {
+
+            }
+
+            @Override
+            public void onItemClick() {
+                Intent articleIntent = new Intent(getContext(), ArticleDetailsActivity.class);
+                startActivity(articleIntent);
+            }
+        }) );
         mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return mBinding.getRoot();
     }
