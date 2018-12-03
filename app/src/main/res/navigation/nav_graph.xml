@@ -24,18 +24,7 @@
             android:name="title"
             android:defaultValue="@string/title_headlines" />
 
-
     </fragment>
-    <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.am.my_feed.search.SearchFragment"
-        android:label="@string/label_search"
-        tools:layout="@layout/fragment_search">
-        <argument
-            android:name="title"
-            android:defaultValue="@string/title_search" />
-    </fragment>
-
     <fragment
         android:id="@+id/navigation_favorites"
         android:name="com.am.my_feed.favorite.FavoriteFragment"
@@ -46,6 +35,17 @@
             android:defaultValue="@string/title_favorites" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.am.my_feed.search.SearchFragment"
+        android:label="@string/label_search"
+        tools:layout="@layout/fragment_search">
+        <argument
+            android:name="title"
+            android:defaultValue="@string/title_search" />
+    </fragment>
+
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.am.my_feed.profile.ProfileFragment"

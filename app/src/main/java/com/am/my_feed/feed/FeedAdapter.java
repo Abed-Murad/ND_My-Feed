@@ -67,7 +67,9 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void SetOnItemClickListener(final OnArticleClickListener mItemClickListener) {
-        this.mArticleClickListener = mItemClickListener;
+        /*
+        this.mArticleClickListener = mItemClickListener; //TODO: Re Activate the OnArticleClickListener
+        */
     }
 
     public interface OnArticleClickListener {
@@ -77,16 +79,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(final View itemView) {
             super(itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mArticleClickListener.onItemClick(itemView, getAdapterPosition(), mArticleList.get(getAdapterPosition() - 1));
-                }
-            });
+            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick(itemView, getAdapterPosition(), mArticleList.get(getAdapterPosition() - 1)));
         }
 
-        private void bindData(Article article) {
-        }
+        private void bindData(Article article) { }
     }
 
 

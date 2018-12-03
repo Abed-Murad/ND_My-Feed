@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".headlines.HeadlinesFragment">
 
-        <com.astuetz.PagerSlidingTabStrip
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/tabs"
+            app:tabMode="scrollable"
+            android:minHeight="?attr/actionBarSize" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/headlinesPager"
+
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:pstsIndicatorHeight="2dp" />
-
-
-        <com.example.lib.Deck
-            android:id="@+id/headlinesDeckPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </layout>

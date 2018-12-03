@@ -64,8 +64,8 @@ public class HeadlinesFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_headlines, container, false);
         HeadlinesAdapter adapter = new HeadlinesAdapter(getChildFragmentManager(), fragmentsTitles);
-        mBinding.headlinesDeckPager.setAdapter(adapter);
-        mBinding.tabs.setViewPager(mBinding.headlinesDeckPager);
+        mBinding.headlinesPager.setAdapter(adapter);
+        mBinding.tabs.setupWithViewPager(mBinding.headlinesPager);
         return mBinding.getRoot();
     }
 
@@ -94,21 +94,11 @@ public class HeadlinesFragment extends BaseFragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String title);
     }
 
-    private static class HeadlinesAdapter extends FragmentPagerAdapter {
+    private  class HeadlinesAdapter extends FragmentPagerAdapter {
         private String mFragmentsTitles[];
 
 

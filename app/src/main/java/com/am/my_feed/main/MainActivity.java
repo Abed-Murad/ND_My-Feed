@@ -20,6 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 
+//TODO: Fix the Back Navigation Bug in MainActivity ToolBar
 public class MainActivity extends BaseActivity implements
         FeedFragment.OnFragmentInteractionListener,
         HeadlinesFragment.OnFragmentInteractionListener,
