@@ -43,6 +43,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.am.my_feed.main.MainActivity" />
         </activity>
+        <activity android:name=".search.SearchResultsActivity"></activity>
     </application>
 
 </manifest>
