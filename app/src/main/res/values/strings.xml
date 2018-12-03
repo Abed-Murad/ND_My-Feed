@@ -29,8 +29,9 @@
     <string name="title_continue_as_a_guest">Continue as a Guest</string>
     <string name="title_log_in">Log in</string>
     <string name="title_username">Abdallah Murad</string>
-
-
+    <string name="title_keywords">Keywords</string>
+    <string name="title_sources">Sources</string>
+    <string name="title_categories">Categories</string>
 
 
 </resources>
