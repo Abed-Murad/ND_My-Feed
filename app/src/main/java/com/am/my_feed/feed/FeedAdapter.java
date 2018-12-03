@@ -79,7 +79,9 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(final View itemView) {
             super(itemView);
-            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick(itemView, getAdapterPosition(), mArticleList.get(getAdapterPosition() - 1)));
+             /*
+            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick(itemView, getAdapterPosition(), mArticleList.get(getAdapterPosition() - 1)));  //TODO: Re Activate the OnArticleClickListener
+             */
         }
 
         private void bindData(Article article) { }

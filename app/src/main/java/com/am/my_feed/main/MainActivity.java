@@ -18,8 +18,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
-
 //TODO: Fix the Back Navigation Bug in MainActivity ToolBar
 public class MainActivity extends BaseActivity implements
         FeedFragment.OnFragmentInteractionListener,
@@ -42,7 +40,6 @@ public class MainActivity extends BaseActivity implements
     private void setupBottomNavigation() {
         mBottomNavView = mBinding.bottomNavigationView;
         mNavController = Navigation.findNavController(this, R.id.navHostFragment);
-        setupActionBarWithNavController(this, mNavController);
         NavigationUI.setupWithNavController(mBottomNavView, mNavController);
     }
 
