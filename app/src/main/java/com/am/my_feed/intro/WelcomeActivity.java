@@ -19,19 +19,16 @@ import com.am.my_feed.profile.ProfileFragment;
 
 public class WelcomeActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener {
 
-    private final static int NUM_WELCOME_FRAGMENT = 4;
+    private final static int NUM_FRAGMENTS = 4;
     private ActivityWelcomeBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_welcome);
-        mBinding.guestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        mBinding.guestBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            startActivity(intent);
         });
         mBinding.deckPager.setAdapter(new WelcomePagerAdapter(getSupportFragmentManager()));
         mBinding.dotsIndicator.setViewPager(mBinding.deckPager);
@@ -42,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
 
     }
 
-    private static class WelcomePagerAdapter extends FragmentPagerAdapter {
+    private class WelcomePagerAdapter extends FragmentPagerAdapter {
 
         public WelcomePagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -52,20 +49,20 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return WelcomeFragment.newInstance("Breaking News ",
-                            "We track headlines in 7 categories across over 50 countries, " +
-                                    "and at over a hundred top publications and blogs, in near real time.",
+                    return WelcomeFragment.newInstance(getString(R.string.title_breaking_news),
+                            getString(R.string.subtitle_breaking_news),
                             R.drawable.ic_globe);
                 case 1:
-                    return WelcomeFragment.newInstance("Favourite Articles",
-                            "My feed provide an offline mode so you can save your favorite articles and read them latter ", R.drawable.ic_bookmark);
+                    return WelcomeFragment.newInstance(getString(R.string.title_favourite_articles),
+                            getString(R.string.subtitle_favourite_articles),
+                            R.drawable.ic_bookmark);
                 case 2:
-                    return WelcomeFragment.newInstance("Search",
-                            "Search articles that mention a specific topic or keyword, we index every article published by over 30,000 news sources and blogs.",
+                    return WelcomeFragment.newInstance(getString(R.string.title_search),
+                            getString(R.string.title_search_for_articles),
                             R.drawable.ic_search);
                 case 3:
-                    return WelcomeFragment.newInstance("Keep in touch",
-                            "Get notification on new articles ",
+                    return WelcomeFragment.newInstance(getString(R.string.title_keep_in_touch),
+                            getString(R.string.subtitle_keep_in_touch),
                             R.drawable.ic_notifications);
             }
             return null;
@@ -73,7 +70,7 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
 
         @Override
         public int getCount() {
-            return NUM_WELCOME_FRAGMENT;
+            return NUM_FRAGMENTS;
         }
     }
 
@@ -88,10 +85,6 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
         private String mSubtitle;
         private int mIcon;
 
-        /**
-         * Create a new instance of WelcomeFragment, providing "num"
-         * as an argument.
-         */
         public static WelcomeFragment newInstance(String title, String subtitle, int icon) {
             WelcomeFragment welcomeFragment = new WelcomeFragment();
             // Supply Fragment arguments.
@@ -103,9 +96,6 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
             return welcomeFragment;
         }
 
-        /**
-         * When creating, retrieve this instance's number from its arguments.
-         */
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -114,9 +104,6 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
             mIcon = getArguments() != null ? getArguments().getInt(KEY_ICON) : -1;
         }
 
-        /**
-         * Bind the data to the fragment Ui elements
-         */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false);

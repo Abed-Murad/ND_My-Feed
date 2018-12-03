@@ -10,12 +10,24 @@
     <string name="title_continue_as_a_guest">Continue as a Guest</string>
     <string name="title_log_in">Log in</string>
 
+    <!--Welcome Fragment Ui Titles-->
+    <string name="title_breaking_news">Breaking News</string>
+    <string name="subtitle_breaking_news">We track headlines in 7 categories across over 50 countries, and at over a hundred top publications and blogs, in near real time.</string>
+    <string name="title_favourite_articles">Favourite Articles</string>
+    <string name="subtitle_favourite_articles">My feed provide an offline mode so you can save your favorite articles and read them latter</string>
+    <string name="title_search_for_articles">Search</string>
+    <string name="subtitle_search">Search articles that mention a specific topic or keyword, we index every article published by over 30,000 news sources and blogs.</string>
+    <string name="title_keep_in_touch">Keep in touch</string>
+    <string name="subtitle_keep_in_touch">Get notification on new articles</string>
+
+
     <!--Fragments Labels-->
     <string name="label_user_feed">My Feed</string>
     <string name="label_headlines">HeadLines</string>
     <string name="label_favorite_articles">Favorites</string>
     <string name="label_profile">Profile</string>
     <string name="label_search">Search</string>
+
 
 
 
