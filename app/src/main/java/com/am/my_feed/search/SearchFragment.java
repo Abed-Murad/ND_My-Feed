@@ -1,22 +1,24 @@
 package com.am.my_feed.search;
 
+import android.app.SearchManager;
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
-import com.am.my_feed.util.BaseFragment;
+import com.am.my_feed.databinding.FragmentSearchBinding;
 import com.am.my_feed.profile.ProfileFragment;
+import com.am.my_feed.util.BaseFragment;
 
 
 public class SearchFragment extends BaseFragment {
     private static final String ARG_PARAM2 = "param2";
-
     private String mTitleParam;
     private String mParam2;
+    private FragmentSearchBinding mBidning;
 
     private OnFragmentInteractionListener mListener;
 
@@ -39,6 +41,7 @@ public class SearchFragment extends BaseFragment {
         if (getArguments() != null) {
             mTitleParam = getArguments().getString(ARG_TITLE);
             onFragmentInteraction(mTitleParam);
+
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
@@ -46,7 +49,17 @@ public class SearchFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        mBidning = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+
+        // Assumes current activity is the searchable activity
+        mBidning.searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        mBidning.searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+        mBidning.searchView.setSubmitButtonEnabled(true);
+        mBidning.searchView.setQueryRefinementEnabled(true);
+
+        return mBidning.getRoot();
     }
 
     public void onFragmentInteraction(String title) {
@@ -75,4 +88,5 @@ public class SearchFragment extends BaseFragment {
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String title);
-    }}
+    }
+}
