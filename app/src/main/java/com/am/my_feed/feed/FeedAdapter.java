@@ -75,13 +75,13 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public interface OnArticleClickListener {
         //TODO: use this method in the real project data not the parameter-less onItemClick()
         void onItemClick(View view, int position, Article model);
-        void onItemClick();
+        void onBookmarkButtonClick();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(final View itemView) {
             super(itemView);
-            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick());
+            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick(null, 0, null));//TODO: Remove this Dummy Data
         }
 
         private void bindData(Article article) { }

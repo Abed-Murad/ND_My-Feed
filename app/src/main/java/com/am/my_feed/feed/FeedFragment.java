@@ -62,7 +62,7 @@ public class FeedFragment extends BaseFragment {
             }
 
             @Override
-            public void onItemClick() {
+            public void onBookmarkButtonClick() {
                 Intent articleIntent = new Intent(getContext(), ArticleDetailsActivity.class);
                 startActivity(articleIntent);
             }

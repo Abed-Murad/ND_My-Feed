@@ -1,18 +1,24 @@
 package com.am.my_feed.favorite;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
+import com.am.my_feed.article.Article;
+import com.am.my_feed.databinding.FragmentFavoriteBinding;
+import com.am.my_feed.feed.FeedAdapter;
 import com.am.my_feed.util.BaseFragment;
 
 
 public class FavoriteFragment extends BaseFragment {
     private static final String ARG_PARAM2 = "param2";
 
+    private FragmentFavoriteBinding mBidning;
     private String mTitleParam;
     private String mParam2;
 
@@ -44,7 +50,20 @@ public class FavoriteFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+        mBidning = DataBindingUtil.inflate(inflater, R.layout.fragment_favorite, container, false);
+        mBidning.favoriteRecyclerVIew.setLayoutManager(new LinearLayoutManager(getContext()));
+        mBidning.favoriteRecyclerVIew.setAdapter(new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
+            @Override
+            public void onItemClick(View view, int position, Article model) {
+
+            }
+
+            @Override
+            public void onBookmarkButtonClick() {
+
+            }
+        }));
+        return mBidning.getRoot();
     }
 
     public void onFragmentInteraction(String title) {
