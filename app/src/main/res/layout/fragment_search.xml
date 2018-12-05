@@ -13,9 +13,9 @@
             style="@style/SearchViewStyle"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             android:background="#fff"
-            android:elevation="4dp"
+            android:elevation="6dp"
             app:iconifiedByDefault="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -24,19 +24,33 @@
 
 
         <TextView
-            android:id="@+id/keywordsTextView"
+            android:id="@+id/filtersHeadLineTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_profile_text"
-            android:drawableStart="@drawable/ic_keyword"
-            style="@style/searchFiltersBtn"
-            android:text="@string/title_language"
+            android:text="@string/title_filters"
+            android:textSize="@dimen/large"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
+
+        <TextView
+            android:id="@+id/langiageTextView"
+            style="@style/searchFiltersBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_profile_text"
+            android:drawableStart="@drawable/ic_language"
+            android:text="@string/title_language"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filtersHeadLineTextView" />
+
         <TextView
             android:id="@+id/sourcesTextView"
+            style="@style/searchFiltersBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_news"
@@ -44,11 +58,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/keywordsTextView"
-            style="@style/searchFiltersBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/langiageTextView" />
 
         <TextView
             android:id="@+id/categoriesTextView"
+            style="@style/searchFiltersBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_category"
@@ -56,8 +70,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sourcesTextView"
-            style="@style/searchFiltersBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/sourcesTextView" />
 
 
     </android.support.constraint.ConstraintLayout>
