@@ -58,15 +58,15 @@ public class FeedFragment extends BaseFragment {
         mFeedRecyclerView.setAdapter(new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
             @Override
             public void onItemClick(View view, int position, Article model) {
-
+                Intent articleIntent = new Intent(getContext(), ArticleDetailsActivity.class);
+                startActivity(articleIntent);
             }
 
             @Override
             public void onBookmarkButtonClick() {
-                Intent articleIntent = new Intent(getContext(), ArticleDetailsActivity.class);
-                startActivity(articleIntent);
+
             }
-        }) );
+        }));
         mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return mBinding.getRoot();
     }
