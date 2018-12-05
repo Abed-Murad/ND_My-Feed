@@ -20,8 +20,6 @@ public class SearchResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
-        setSupportActionBar(mBinding.toolbar);
-
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_search_results);
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
