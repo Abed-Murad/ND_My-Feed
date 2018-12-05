@@ -1,7 +1,6 @@
 package com.am.my_feed.feed;
 
 import android.content.Context;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +11,11 @@ import android.view.ViewGroup;
 
 import com.am.my_feed.R;
 import com.am.my_feed.article.Article;
-import com.am.my_feed.article.ArticleDetailsActivity;
 import com.am.my_feed.databinding.FragmentFeedBinding;
 import com.am.my_feed.util.BaseFragment;
+import com.am.my_feed.util.FUNC;
+
+import static com.am.my_feed.util.CONST.TEST_ARTICLE_URL;
 
 
 public class FeedFragment extends BaseFragment {
@@ -58,8 +59,7 @@ public class FeedFragment extends BaseFragment {
         mFeedRecyclerView.setAdapter(new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
             @Override
             public void onItemClick(View view, int position, Article model) {
-                Intent articleIntent = new Intent(getContext(), ArticleDetailsActivity.class);
-                startActivity(articleIntent);
+                FUNC.luanchChromeCustomTaps(getContext(), TEST_ARTICLE_URL);
             }
 
             @Override
