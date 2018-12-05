@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.am.my_feed.R;
@@ -16,10 +17,13 @@ import com.orhanobut.logger.Logger;
 
 public class SearchResultsActivity extends AppCompatActivity {
     private ActivitySearchResultsBinding mBinding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search_results);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_search_results);
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
@@ -39,4 +43,5 @@ public class SearchResultsActivity extends AppCompatActivity {
             }
         }));
     }
+
 }

@@ -35,6 +35,7 @@
     <string name="title_activity_article_details">ArticleDetailsActivity</string>
     <string name="description_profile_image">User Image</string>
     <string name="hint_search">Search News</string>
+    <string name="title_activity_search_results2">SearchResultsActivity2</string>
 
 
 </resources>
