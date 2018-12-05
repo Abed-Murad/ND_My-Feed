@@ -14,13 +14,18 @@ import com.am.my_feed.databinding.ActivitySearchResultsBinding;
 import com.am.my_feed.feed.FeedAdapter;
 import com.orhanobut.logger.Logger;
 
+//TODO: Make the layout to the other side when click home arrow at toolbar
 public class SearchResultsActivity extends AppCompatActivity {
     private ActivitySearchResultsBinding mBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_search_results);
+        setSupportActionBar(mBinding.toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
