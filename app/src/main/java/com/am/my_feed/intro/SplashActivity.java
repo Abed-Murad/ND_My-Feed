@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.am.my_feed.test.TestActivity;
 import com.am.my_feed.util.BaseActivity;
 
 
@@ -16,7 +17,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void startMainActivity() {
-        Intent intent = new Intent(this, WelcomeActivity.class);
+        Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);
         SplashActivity.this.finish();
     }
