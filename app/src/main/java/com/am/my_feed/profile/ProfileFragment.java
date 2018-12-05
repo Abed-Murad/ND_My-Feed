@@ -1,17 +1,21 @@
 package com.am.my_feed.profile;
 
 import android.content.Context;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
+import com.am.my_feed.databinding.FragmentProfileBinding;
+import com.am.my_feed.settings.SettingsActivity;
 import com.am.my_feed.util.BaseFragment;
 
 public class ProfileFragment extends BaseFragment {
     private static final String ARG_PARAM2 = "param2";
-
+    private FragmentProfileBinding mBinding;
     private String mTitleParam;
     private String mParam2;
 
@@ -43,7 +47,12 @@ public class ProfileFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
+        mBinding.settingsImageView.setOnClickListener(v -> {
+            Intent settingsIntent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(settingsIntent);
+        });
+        return mBinding.getRoot();
     }
 
     public void onFragmentInteraction(String title) {
