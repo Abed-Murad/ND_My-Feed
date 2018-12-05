@@ -42,4 +42,18 @@
         <item name="queryHint">@string/hint_search</item>
     </style>
 
+
+    <style name="searchFiltersBtn">
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@drawable/bg_profile_text</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textSize">@dimen/medium</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow_down</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
 </resources>
