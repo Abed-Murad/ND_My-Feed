@@ -79,8 +79,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_share" />
-                            <entry key="sourceFile" value="C:\Users\Abed_Murad\Pictures\ic_language.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_info" />
+                            <entry key="sourceFile" value="C:\Users\Abed_Murad\Pictures\ic_info.svg" />
                           </map>
                         </option>
                       </PersistentState>
