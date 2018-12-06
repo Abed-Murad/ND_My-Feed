@@ -28,6 +28,7 @@ public class FeedFragment extends BaseFragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private Context mContext;
 
     public FeedFragment() {
         // Required empty public constructor
@@ -45,6 +46,7 @@ public class FeedFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = getContext();
         if (getArguments() != null) {
             mTitleParam = getArguments().getString(ARG_TITLE);
             onFragmentInteraction(mTitleParam);
@@ -59,7 +61,7 @@ public class FeedFragment extends BaseFragment {
         mFeedRecyclerView.setAdapter(new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
             @Override
             public void onItemClick(View view, int position, Article model) {
-                FUNC.luanchChromeCustomTaps(getContext(), TEST_ARTICLE_URL);
+                FUNC.openUrlInChromeCustomTab(mContext , null , TEST_ARTICLE_URL);
             }
 
             @Override
