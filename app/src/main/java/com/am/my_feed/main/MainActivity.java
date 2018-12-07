@@ -12,6 +12,7 @@ import com.am.my_feed.headlines.HeadlinesFragment;
 import com.am.my_feed.profile.ProfileFragment;
 import com.am.my_feed.search.SearchFragment;
 import com.am.my_feed.util.BaseActivity;
+import com.crashlytics.android.Crashlytics;
 import com.orhanobut.logger.Logger;
 
 import androidx.navigation.NavController;
@@ -34,6 +35,7 @@ public class MainActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        Crashlytics.getInstance().crash();
         setupBottomNavigation();
     }
 
