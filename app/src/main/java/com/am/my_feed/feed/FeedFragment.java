@@ -17,6 +17,7 @@ import com.am.my_feed.network.APIClient;
 import com.am.my_feed.network.ApiRequests;
 import com.am.my_feed.util.BaseFragment;
 import com.am.my_feed.util.FUNC;
+import com.orhanobut.logger.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,27 +67,30 @@ public class FeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
         mFeedRecyclerView = mBinding.userFeedRecyclerView;
-        mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mFeedRecyclerView.setHasFixedSize(true);
-        mFeedAdapter = new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
-            @Override
-            public void onItemClick(View view, int position, Article model) {
-                FUNC.openUrlInChromeCustomTab(mContext, null, TEST_ARTICLE_URL);
-            }
 
-            @Override
-            public void onBookmarkButtonClick() {
 
-            }
-        });
-
-        mFeedRecyclerView.setAdapter(mFeedAdapter);
 
         ApiRequests apiService = APIClient.getClient().create(ApiRequests.class);
         apiService.getHeadlines().enqueue(new Callback<ArticleList>() {
             @Override
             public void onResponse(Call<ArticleList> call, Response<ArticleList> response) {
+                mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                Logger.d(response.body().getArticles());
+                mFeedRecyclerView.setHasFixedSize(true);
+                mFeedAdapter = new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position, Article model) {
+                        FUNC.openUrlInChromeCustomTab(mContext, null, TEST_ARTICLE_URL);
+                    }
+
+                    @Override
+                    public void onBookmarkButtonClick() {
+
+                    }
+                });
                 mFeedAdapter.addAll(response.body().getArticles());
+                mFeedRecyclerView.setAdapter(mFeedAdapter);
+
             }
 
             @Override

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.am.my_feed.article.Article;
 import com.am.my_feed.databinding.CardFeedArticleBinding;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +47,11 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
         if (holder instanceof ViewHolder && mArticleList != null) {
+            if (mArticleList.size() != 0) {
             final Article article = getItem(position - 1);
             ViewHolder viewHolder = (ViewHolder) holder;
             viewHolder.bindData(article);
+            }
 
         }
     }
@@ -60,7 +63,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mArticleList == null ? 0 : mArticleList.size() + 12; //TODO: Remove + 12
+        return mArticleList == null ? 0 : mArticleList.size();
     }
 
     public void add(Article article) {
@@ -71,6 +74,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void addAll(List<Article> articleList) {
         for (Article article : articleList) {
             add(article);
+            Logger.d(article);
         }
     }
 
@@ -96,7 +100,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(itemView.getRoot());
             this.mBinding = itemView;
 
-            itemView.setOnClickListener(view -> mArticleClickListener.onItemClick(null, 0, null));//TODO: Remove this Dummy Data
+            itemView.getRoot().setOnClickListener(view -> mArticleClickListener.onItemClick(null, 0, null));//TODO: Remove this Dummy Data
         }
 
         private void bindData(Article article) {
