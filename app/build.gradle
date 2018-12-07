@@ -58,10 +58,13 @@ dependencies {
     implementation 'com.twitter.sdk.android:twitter-core:3.3.0'
     /* Crashlytics */
     implementation 'com.crashlytics.sdk.android:crashlytics:2.9.7'
-    // Retrofit & Gson
+    /* Retrofit & Gson */
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.google.code.gson:gson:2.8.2'
+    /* Glide */
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
     /* Testing */
     implementation "com.android.support:support-v4:$support_version"
