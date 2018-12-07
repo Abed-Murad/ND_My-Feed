@@ -11,9 +11,16 @@ import android.view.ViewGroup;
 
 import com.am.my_feed.R;
 import com.am.my_feed.article.Article;
+import com.am.my_feed.article.ArticleList;
 import com.am.my_feed.databinding.FragmentFeedBinding;
+import com.am.my_feed.network.APIClient;
+import com.am.my_feed.network.ApiRequests;
 import com.am.my_feed.util.BaseFragment;
 import com.am.my_feed.util.FUNC;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.am.my_feed.util.CONST.TEST_ARTICLE_URL;
 
@@ -21,8 +28,9 @@ import static com.am.my_feed.util.CONST.TEST_ARTICLE_URL;
 public class FeedFragment extends BaseFragment {
     private static final String ARG_PARAM2 = "param2";
 
-    FragmentFeedBinding mBinding;
-    RecyclerView mFeedRecyclerView;
+    private FragmentFeedBinding mBinding;
+    private RecyclerView mFeedRecyclerView;
+    private FeedAdapter mFeedAdapter;
 
     private String mTitleParam;
     private String mParam2;
@@ -58,18 +66,37 @@ public class FeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
         mFeedRecyclerView = mBinding.userFeedRecyclerView;
-        mFeedRecyclerView.setAdapter(new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
+        mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mFeedRecyclerView.setHasFixedSize(true);
+        mFeedAdapter = new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
             @Override
             public void onItemClick(View view, int position, Article model) {
-                FUNC.openUrlInChromeCustomTab(mContext , null , TEST_ARTICLE_URL);
+                FUNC.openUrlInChromeCustomTab(mContext, null, TEST_ARTICLE_URL);
             }
 
             @Override
             public void onBookmarkButtonClick() {
 
             }
-        }));
-        mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        });
+
+        mFeedRecyclerView.setAdapter(mFeedAdapter);
+
+        ApiRequests apiService = APIClient.getClient().create(ApiRequests.class);
+        apiService.getHeadlines().enqueue(new Callback<ArticleList>() {
+            @Override
+            public void onResponse(Call<ArticleList> call, Response<ArticleList> response) {
+                mFeedAdapter.addAll(response.body().getArticles());
+            }
+
+            @Override
+            public void onFailure(Call<ArticleList> call, Throwable t) {
+
+            }
+        });
+
+
+
         return mBinding.getRoot();
     }
 

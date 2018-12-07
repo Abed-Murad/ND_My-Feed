@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.am.my_feed.R;
 import com.am.my_feed.article.Article;
+import com.am.my_feed.databinding.CardFeedArticleBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private OnArticleClickListener mArticleClickListener;
 
 
-    public FeedAdapter(Context context , OnArticleClickListener articleClickListener) {
+    public FeedAdapter(Context context, OnArticleClickListener articleClickListener) {
         this.mContext = context;
         this.mArticleList = new ArrayList<>();
         this.mArticleClickListener = articleClickListener;
@@ -34,8 +34,9 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case TYPE_ITEM: {
-                View v = mInflater.inflate(R.layout.card_feed_article, parent, false);
-                return new ViewHolder(v);
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                CardFeedArticleBinding cardBinding = CardFeedArticleBinding.inflate(inflater, parent, false);
+                return new ViewHolder(cardBinding);
             }
         }
         return null;
@@ -45,11 +46,10 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
         if (holder instanceof ViewHolder && mArticleList != null) {
-            /*
             final Article article = getItem(position - 1);
-            ViewHolder genericViewHolder = (ViewHolder) holder;
-            genericViewHolder.bindData(article);
-            */
+            ViewHolder viewHolder = (ViewHolder) holder;
+            viewHolder.bindData(article);
+
         }
     }
 
@@ -68,6 +68,16 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         notifyItemInserted(mArticleList.size() - 1);
     }
 
+    public void addAll(List<Article> articleList) {
+        for (Article article : articleList) {
+            add(article);
+        }
+    }
+
+    private Article getItem(int position) {
+        return mArticleList.get(position);
+    }
+
     public void SetOnItemClickListener(final OnArticleClickListener mItemClickListener) {
         this.mArticleClickListener = mItemClickListener;
     }
@@ -75,16 +85,24 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public interface OnArticleClickListener {
         //TODO: use this method in the real project data not the parameter-less onItemClick()
         void onItemClick(View view, int position, Article model);
+
         void onBookmarkButtonClick();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(final View itemView) {
-            super(itemView);
+        private final CardFeedArticleBinding mBinding;
+
+        public ViewHolder(CardFeedArticleBinding itemView) {
+            super(itemView.getRoot());
+            this.mBinding = itemView;
+
             itemView.setOnClickListener(view -> mArticleClickListener.onItemClick(null, 0, null));//TODO: Remove this Dummy Data
         }
 
-        private void bindData(Article article) { }
+        private void bindData(Article article) {
+            mBinding.setArticle(article);
+            mBinding.executePendingBindings();
+        }
     }
 
 
