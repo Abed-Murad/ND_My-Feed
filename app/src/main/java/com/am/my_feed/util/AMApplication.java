@@ -2,6 +2,7 @@ package com.am.my_feed.util;
 
 import android.app.Application;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -12,6 +13,7 @@ public class AMApplication extends Application {
     public void onCreate() {
         super.onCreate();
         setupLogger();
+        FirebaseAnalytics.getInstance(this);
     }
 
     private void setupLogger() {
