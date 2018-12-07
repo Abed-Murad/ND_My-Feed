@@ -51,10 +51,10 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
     private void openFirebaseAuthUi() {
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.FacebookBuilder()
-                        .setPermissions(Arrays.asList("user_friends", "instagram_basic")).build(),
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.TwitterBuilder().build()
+//                new AuthUI.IdpConfig.FacebookBuilder()
+//                        .setPermissions(Arrays.asList("user_friends", "instagram_basic")).build(),
+                new AuthUI.IdpConfig.EmailBuilder().build()
+//              ,new AuthUI.IdpConfig.TwitterBuilder().build()
 //              new AuthUI.IdpConfig.PhoneBuilder().build(),
         );
 

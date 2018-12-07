@@ -52,7 +52,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.5'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
-
+    /* Facebook Auth */
+    implementation 'com.facebook.android:facebook-android-sdk:4.35.0'
+    /* Twitter Auth */
+    implementation 'com.twitter.sdk.android:twitter-core:3.3.0'
     /* Crashlytics */
     implementation 'com.crashlytics.sdk.android:crashlytics:2.9.7'
 
