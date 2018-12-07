@@ -35,7 +35,6 @@ public class MainActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        Crashlytics.getInstance().crash();
         setupBottomNavigation();
     }
 
