@@ -11,14 +11,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.am.my_feed.BuildConfig;
 import com.am.my_feed.R;
 import com.am.my_feed.databinding.ActivityWelcomeBinding;
 import com.am.my_feed.databinding.FragmentWelcomeBinding;
 import com.am.my_feed.main.MainActivity;
 import com.am.my_feed.profile.ProfileFragment;
+import com.firebase.ui.auth.AuthUI;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.am.my_feed.util.CONST.URL_TERMS_OF_SERVICE;
 
 public class WelcomeActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener {
 
+    private static final int FIREBASE_UI_SIGN_IN_REQUEST_CODE = 1010;
     private final static int NUM_FRAGMENTS = 4;
     private ActivityWelcomeBinding mBinding;
 
@@ -32,11 +40,33 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
         });
         mBinding.deckPager.setAdapter(new WelcomePagerAdapter(getSupportFragmentManager()));
         mBinding.dotsIndicator.setViewPager(mBinding.deckPager);
+        mBinding.loginBtn.setOnClickListener(v -> openFirebaseAuthUi());
     }
 
     @Override
     public void onFragmentInteraction(String title) {
 
+    }
+
+    private void openFirebaseAuthUi() {
+        List<AuthUI.IdpConfig> providers = Arrays.asList(
+                new AuthUI.IdpConfig.GoogleBuilder().build(),
+                new AuthUI.IdpConfig.FacebookBuilder()
+                        .setPermissions(Arrays.asList("user_friends", "instagram_basic")).build(),
+                new AuthUI.IdpConfig.EmailBuilder().build(),
+                new AuthUI.IdpConfig.TwitterBuilder().build()
+//              new AuthUI.IdpConfig.PhoneBuilder().build(),
+        );
+
+        Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
+                .setIsSmartLockEnabled(!BuildConfig.DEBUG, true)
+                .setAvailableProviders(providers)
+                .setLogo(R.drawable.ic_launcher)
+                .setTheme(R.style.LoginTheme)
+                .setTosAndPrivacyPolicyUrls(URL_TERMS_OF_SERVICE, URL_TERMS_OF_SERVICE)
+                .build();
+
+        startActivityForResult(intent, FIREBASE_UI_SIGN_IN_REQUEST_CODE);
     }
 
     private class WelcomePagerAdapter extends FragmentPagerAdapter {
@@ -114,7 +144,6 @@ public class WelcomeActivity extends AppCompatActivity implements ProfileFragmen
 
             return mBinding.getRoot();
         }
-
 
     }
 
