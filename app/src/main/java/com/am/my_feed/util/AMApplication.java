@@ -2,11 +2,14 @@ package com.am.my_feed.util;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+
+import io.fabric.sdk.android.Fabric;
 
 public class AMApplication extends Application {
     @Override
@@ -14,6 +17,7 @@ public class AMApplication extends Application {
         super.onCreate();
         setupLogger();
         FirebaseAnalytics.getInstance(this);
+        Fabric.with(this, new Crashlytics());
     }
 
     private void setupLogger() {

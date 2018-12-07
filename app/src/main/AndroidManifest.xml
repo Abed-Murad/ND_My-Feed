@@ -4,6 +4,7 @@
     package="com.am.my_feed">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".util.AMApplication"
@@ -72,7 +73,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.am.my_feed.main.MainActivity" />
         </activity>
-        <activity android:name=".test.TestActivity"></activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="70c1f982fd2755781d0774aca609a3bfedbaee81" />
+
+
+        <activity android:name=".test.TestActivity"/>
     </application>
 
 </manifest>
