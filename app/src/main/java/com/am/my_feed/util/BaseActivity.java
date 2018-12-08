@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.am.my_feed.network.APIClient;
+import com.am.my_feed.network.ApiRequests;
+
 public class BaseActivity extends AppCompatActivity {
+    protected ApiRequests apiService = APIClient.getClient().create(ApiRequests.class);
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {

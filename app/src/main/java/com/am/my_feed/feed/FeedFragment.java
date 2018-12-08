@@ -13,8 +13,6 @@ import com.am.my_feed.R;
 import com.am.my_feed.article.Article;
 import com.am.my_feed.article.ArticleList;
 import com.am.my_feed.databinding.FragmentFeedBinding;
-import com.am.my_feed.network.APIClient;
-import com.am.my_feed.network.ApiRequests;
 import com.am.my_feed.util.BaseFragment;
 import com.am.my_feed.util.FUNC;
 import com.orhanobut.logger.Logger;
@@ -22,6 +20,8 @@ import com.orhanobut.logger.Logger;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.am.my_feed.util.CONST.CAT_TECH;
 
 
 public class FeedFragment extends BaseFragment {
@@ -65,27 +65,24 @@ public class FeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
         mFeedRecyclerView = mBinding.userFeedRecyclerView;
+        mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mFeedRecyclerView.setHasFixedSize(true);
+        mFeedAdapter = new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
+            @Override
+            public void onItemClick(View view, int position, Article article) {
+                FUNC.openUrlInChromeCustomTab(mContext, article, article.getUrl());
+            }
 
+            @Override
+            public void onBookmarkButtonClick() {
 
-
-        ApiRequests apiService = APIClient.getClient().create(ApiRequests.class);
-        apiService.getHeadlines().enqueue(new Callback<ArticleList>() {
+            }
+        });
+        apiService.getHeadlines("us" , CAT_TECH).enqueue(new Callback<ArticleList>() {
             @Override
             public void onResponse(Call<ArticleList> call, Response<ArticleList> response) {
-                mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 Logger.d(response.body().getArticles());
-                mFeedRecyclerView.setHasFixedSize(true);
-                mFeedAdapter = new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position, Article article) {
-                        FUNC.openUrlInChromeCustomTab(mContext, article, article.getUrl());
-                    }
 
-                    @Override
-                    public void onBookmarkButtonClick() {
-
-                    }
-                });
                 mFeedAdapter.addAll(response.body().getArticles());
                 mFeedRecyclerView.setAdapter(mFeedAdapter);
 

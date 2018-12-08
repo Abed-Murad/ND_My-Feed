@@ -15,7 +15,7 @@ public class APIClient {
         if (retrofit == null) {
 
             /*
-            Create OkHttpClient to Add X-Api-Key to every request made fro the app  
+            Create OkHttpClient to Add X-Api-Key to every request made fro the app
              */
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
             httpClient.addInterceptor(chain -> {
