@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 public interface ApiRequests {
 
 
-    @GET("top-headlines?category=general&apiKey=c130a159f67742cd90c30fc79abebbed")
+    @GET("top-headlines?country=in&apiKey=c130a159f67742cd90c30fc79abebbed")
     Call<ArticleList> getHeadlines();
 
 

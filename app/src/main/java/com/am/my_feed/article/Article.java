@@ -16,7 +16,7 @@ public class Article implements Parcelable {
     private String urlToImage;
     @SerializedName("title")
     private String title;
-    @SerializedName("id")
+    @SerializedName("source")
     private Source source;
     @SerializedName("description")
     private String description;
@@ -106,7 +106,8 @@ public class Article implements Parcelable {
     @Override
     public String toString()
     {
-        return "Article [content = "+content+", publishedAt = "+publishedAt+", author = "+author+", urlToImage = "+urlToImage+", title = "+title+", source = "+source+", description = "+description+", url = "+url+"]";
+        return "Article [content = "+content+", publishedAt = "+publishedAt+",\n author = "+author+", urlToImage = "+urlToImage
+                +", title = "+title+", source = "+source+", description = "+description+", url = "+url+"]";
     }
 
     protected Article(Parcel in) {

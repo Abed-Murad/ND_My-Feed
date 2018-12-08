@@ -23,8 +23,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.am.my_feed.util.CONST.TEST_ARTICLE_URL;
-
 
 public class FeedFragment extends BaseFragment {
     private static final String ARG_PARAM2 = "param2";
@@ -79,8 +77,8 @@ public class FeedFragment extends BaseFragment {
                 mFeedRecyclerView.setHasFixedSize(true);
                 mFeedAdapter = new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
                     @Override
-                    public void onItemClick(View view, int position, Article model) {
-                        FUNC.openUrlInChromeCustomTab(mContext, null, TEST_ARTICLE_URL);
+                    public void onItemClick(View view, int position, Article article) {
+                        FUNC.openUrlInChromeCustomTab(mContext, article, article.getUrl());
                     }
 
                     @Override

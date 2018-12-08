@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.am.my_feed.article.Article;
 import com.am.my_feed.databinding.CardFeedArticleBinding;
+import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         if (holder instanceof ViewHolder && mArticleList != null) {
             if (mArticleList.size() != 0) {
-            final Article article = getItem(position - 1);
+            final Article article = getItem(position);
             ViewHolder viewHolder = (ViewHolder) holder;
             viewHolder.bindData(article);
             }
@@ -68,7 +69,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void add(Article article) {
         mArticleList.add(article);
-        notifyItemInserted(mArticleList.size() - 1);
+        notifyItemInserted(mArticleList.size());
     }
 
     public void addAll(List<Article> articleList) {
@@ -99,12 +100,13 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public ViewHolder(CardFeedArticleBinding itemView) {
             super(itemView.getRoot());
             this.mBinding = itemView;
+            mBinding.getRoot().setOnClickListener(view -> mArticleClickListener.onItemClick(mBinding.getRoot(), getAdapterPosition(), getItem(getAdapterPosition())));//TODO: Remove this Dummy Data
 
-            itemView.getRoot().setOnClickListener(view -> mArticleClickListener.onItemClick(null, 0, null));//TODO: Remove this Dummy Data
         }
 
         private void bindData(Article article) {
             mBinding.setArticle(article);
+            Glide.with(mContext).load(article.getUrlToImage()).into(mBinding.articleImage);
             mBinding.executePendingBindings();
         }
     }
