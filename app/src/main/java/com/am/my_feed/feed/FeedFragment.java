@@ -21,18 +21,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.am.my_feed.util.CONST.CAT_TECH;
-
 
 public class FeedFragment extends BaseFragment {
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_FEED_CATEGORY = "feed_category";
 
     private FragmentFeedBinding mBinding;
     private RecyclerView mFeedRecyclerView;
     private FeedAdapter mFeedAdapter;
 
     private String mTitleParam;
-    private String mParam2;
+    private String mFeedCategory;
 
     private OnFragmentInteractionListener mListener;
     private Context mContext;
@@ -41,11 +39,11 @@ public class FeedFragment extends BaseFragment {
         // Required empty public constructor
     }
 
-    public static FeedFragment newInstance(String title, String param2) {
+    public static FeedFragment newInstance(String title, String feedCategory) {
         FeedFragment fragment = new FeedFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, title);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_FEED_CATEGORY, feedCategory);
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,7 +55,7 @@ public class FeedFragment extends BaseFragment {
         if (getArguments() != null) {
             mTitleParam = getArguments().getString(ARG_TITLE);
             onFragmentInteraction(mTitleParam);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mFeedCategory = getArguments().getString(ARG_FEED_CATEGORY);
         }
     }
 
@@ -78,7 +76,7 @@ public class FeedFragment extends BaseFragment {
 
             }
         });
-        apiService.getHeadlines("us" , CAT_TECH).enqueue(new Callback<ArticleList>() {
+        apiService.getHeadlines("us" , mFeedCategory).enqueue(new Callback<ArticleList>() {
             @Override
             public void onResponse(Call<ArticleList> call, Response<ArticleList> response) {
                 Logger.d(response);

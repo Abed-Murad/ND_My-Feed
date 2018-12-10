@@ -15,6 +15,7 @@ import com.am.my_feed.R;
 import com.am.my_feed.databinding.FragmentHeadlinesBinding;
 import com.am.my_feed.feed.FeedFragment;
 import com.am.my_feed.util.BaseFragment;
+import com.am.my_feed.util.CONST;
 
 
 /**
@@ -27,7 +28,7 @@ import com.am.my_feed.util.BaseFragment;
  */
 public class HeadlinesFragment extends BaseFragment {
     private final static String fragmentsTitles[] =
-            {"Business", "entertainment", "general", "health", "general", "sports", "technology"};
+            {"general", "Business", "entertainment", "science", "health", "sports", "technology"};
     private static final String ARG_PARAM2 = "param2";
 
     private FragmentHeadlinesBinding mBinding;
@@ -98,7 +99,7 @@ public class HeadlinesFragment extends BaseFragment {
         void onFragmentInteraction(String title);
     }
 
-    private  class HeadlinesAdapter extends FragmentPagerAdapter {
+    private class HeadlinesAdapter extends FragmentPagerAdapter {
         private String mFragmentsTitles[];
 
 
@@ -110,22 +111,24 @@ public class HeadlinesFragment extends BaseFragment {
         @Override
         public Fragment getItem(int position) {
             switch (position) {
+
+
                 case 0:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_GENERAL);
                 case 1:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_BUSINESS);
                 case 2:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_ENTERTAINMENT);
                 case 3:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_SCIENCE);
                 case 4:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_HEALTH);
                 case 5:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_SPORTS);
                 case 6:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_TECH);
                 default:
-                    return FeedFragment.newInstance("", "");
+                    return FeedFragment.newInstance("", CONST.CAT_BUSINESS);
             }
         }
 

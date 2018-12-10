@@ -15,17 +15,14 @@ public interface ApiRequests {
     Call<ArticleList> getHeadlines(@Query("country") String country,
                                    @Query("category") String category);
 
-
     @GET("everything")
     Call<ArticleList> getSearch(@Query("q") String query,
                                 @Query("language") String language);
-
 
     @GET("competitions/{id}/stages")
     Call<Void> getRequests(@Path("id") String competitionId,
                            @Query("season") String seasonId,
                            @Header("Signature") String signature,
                            @Header("Token") String Token);
-
 
 }
