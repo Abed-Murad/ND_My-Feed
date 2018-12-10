@@ -81,6 +81,7 @@ public class FeedFragment extends BaseFragment {
         apiService.getHeadlines("us" , CAT_TECH).enqueue(new Callback<ArticleList>() {
             @Override
             public void onResponse(Call<ArticleList> call, Response<ArticleList> response) {
+                Logger.d(response);
                 Logger.d(response.body().getArticles());
 
                 mFeedAdapter.addAll(response.body().getArticles());

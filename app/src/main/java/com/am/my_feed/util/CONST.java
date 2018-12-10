@@ -10,7 +10,7 @@ public interface CONST {
     String CAT_HEALTH= "health";
     String CAT_SCIENCE= "science";
     String CAT_SPORTS= "sports";
-    String CAT_TECH= " technology";
+    String CAT_TECH= "technology";
 
     String EXTRA_ARTICLE = "article";
 }
