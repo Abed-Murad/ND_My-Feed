@@ -55,8 +55,15 @@ public class ProfileFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
-        Glide.with(getContext()).load(mFirebaseUser.getPhotoUrl()+ "?sz=500").apply(RequestOptions.circleCropTransform())
-                .into(mBinding.userImageView);
+        if (mFirebaseUser.getPhotoUrl() != null) {
+            Glide.with(getContext()).load(mFirebaseUser.getPhotoUrl() + "?sz=500").apply(RequestOptions.circleCropTransform())
+                    .into(mBinding.userImageView);
+
+        } else {
+            Glide.with(getContext()).load(R.drawable.ic_profile).apply(RequestOptions.circleCropTransform())
+                    .into(mBinding.userImageView);
+
+        }
         mBinding.setUser(mFirebaseUser);
         mBinding.executePendingBindings();
         mBinding.settingsImageView.setOnClickListener(v -> {
