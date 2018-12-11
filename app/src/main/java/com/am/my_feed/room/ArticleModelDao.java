@@ -13,16 +13,16 @@ import java.util.List;
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 @Dao
-public interface NoteModelDao {
+public interface ArticleModelDao {
     @Query("SELECT * FROM Article")
-    LiveData<List<Article>> getAllNotes();
+    LiveData<List<Article>> getAllArticles();
 
-    @Query("SELECT * FROM Article WHERE publishedAt = :noteId")
-    Article getNoteById(String noteId);
+    @Query("SELECT * FROM Article WHERE publishedAt = :publishedAt")
+    Article getArticleById(String publishedAt);
 
     @Insert(onConflict = REPLACE)
-    void insertNote(Article note);
+    void insertArticle(Article article);
 
     @Delete
-    void deleteNote(Article note);
+    void deleteArticle(Article article);
 }

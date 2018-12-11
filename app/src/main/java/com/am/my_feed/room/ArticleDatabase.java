@@ -8,13 +8,13 @@ import android.content.Context;
 import com.am.my_feed.article.Article;
 
 @Database(entities = Article.class, version = 1)
-public abstract class NoteDatabase extends RoomDatabase {
+public abstract class ArticleDatabase extends RoomDatabase {
 
-    private static NoteDatabase INSTANCE;
+    private static ArticleDatabase INSTANCE;
 
-    public static NoteDatabase getDatabase(Context context) {
+    public static ArticleDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), NoteDatabase.class, "article_db").build();
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), ArticleDatabase.class, "article_db").build();
         }
         return INSTANCE;
     }
@@ -23,5 +23,5 @@ public abstract class NoteDatabase extends RoomDatabase {
         INSTANCE = null;
     }
 
-    public abstract NoteModelDao getNoteModelDao();
+    public abstract ArticleModelDao getArticlesModelDao();
 }
