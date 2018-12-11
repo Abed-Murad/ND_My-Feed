@@ -83,7 +83,6 @@ public class FavoriteFragment extends BaseFragment {
             }
         });
 
-        articleListViewModel = ViewModelProviders.of(this).get(ArticleListViewModel.class);
 
 
         return mBidning.getRoot();
