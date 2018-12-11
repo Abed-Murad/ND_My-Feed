@@ -46,7 +46,7 @@ public class SearchResultsActivity extends BaseActivity {
 
             }
             @Override
-            public void onBookmarkButtonClick() {
+            public void onBookmarkButtonClick(Article model) {
 
             }
         }));
@@ -62,7 +62,7 @@ public class SearchResultsActivity extends BaseActivity {
             }
 
             @Override
-            public void onBookmarkButtonClick() {
+            public void onBookmarkButtonClick(Article model) {
 
             }
         });
