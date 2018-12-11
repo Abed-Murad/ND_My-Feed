@@ -1,18 +1,24 @@
 package com.am.my_feed.favorite;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
-import com.am.my_feed.room.Article;
 import com.am.my_feed.databinding.FragmentFavoriteBinding;
 import com.am.my_feed.feed.FeedAdapter;
+import com.am.my_feed.room.Article;
+import com.am.my_feed.room.ArticleListViewModel;
 import com.am.my_feed.util.BaseFragment;
+
+import java.util.List;
 
 
 public class FavoriteFragment extends BaseFragment {
@@ -23,6 +29,10 @@ public class FavoriteFragment extends BaseFragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private ArticleListViewModel articleListViewModel;
+    private FeedAdapter mFeedAdapter;
+
 
     public FavoriteFragment() {
         // Required empty public constructor
@@ -52,17 +62,30 @@ public class FavoriteFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         mBidning = DataBindingUtil.inflate(inflater, R.layout.fragment_favorite, container, false);
         mBidning.favoriteRecyclerVIew.setLayoutManager(new LinearLayoutManager(getContext()));
-        mBidning.favoriteRecyclerVIew.setAdapter(new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
+        mFeedAdapter = new FeedAdapter(getContext(), new FeedAdapter.OnArticleClickListener() {
             @Override
             public void onItemClick(View view, int position, Article model) {
 
             }
 
             @Override
-            public void onBookmarkButtonClick() {
+            public void onBookmarkButtonClick(Article article) {
 
             }
-        }));
+        });
+        articleListViewModel = ViewModelProviders.of(this).get(ArticleListViewModel.class);
+        articleListViewModel.getArticlesList().observe(getActivity(), new Observer<List<Article>>() {
+            @Override
+            public void onChanged(@Nullable List<Article> articles) {
+                mFeedAdapter.addAll(articles);
+                mBidning.favoriteRecyclerVIew.setAdapter(mFeedAdapter);
+
+            }
+        });
+
+        articleListViewModel = ViewModelProviders.of(this).get(ArticleListViewModel.class);
+
+
         return mBidning.getRoot();
     }
 

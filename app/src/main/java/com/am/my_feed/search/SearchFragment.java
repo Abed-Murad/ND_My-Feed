@@ -20,6 +20,7 @@ public class SearchFragment extends BaseFragment {
     private String mParam2;
     private FragmentSearchBinding mBidning;
 
+
     private OnFragmentInteractionListener mListener;
 
     public SearchFragment() {

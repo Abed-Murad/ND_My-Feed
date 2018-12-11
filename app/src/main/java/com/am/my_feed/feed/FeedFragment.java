@@ -28,7 +28,6 @@ import retrofit2.Response;
 public class FeedFragment extends BaseFragment {
     private static final String ARG_FEED_CATEGORY = "feed_category";
 
-    private ArticleListViewModel articleListViewModel;
     private AddArticleViewModel addArticleViewModel;
 
     private FragmentFeedBinding mBinding;
@@ -71,7 +70,6 @@ public class FeedFragment extends BaseFragment {
         mFeedRecyclerView = mBinding.userFeedRecyclerView;
         addArticleViewModel = ViewModelProviders.of(this).get(AddArticleViewModel.class);
 
-        articleListViewModel.getArticlesList().observe(getActivity(), notes -> Logger.d(notes));
 
 
         mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
