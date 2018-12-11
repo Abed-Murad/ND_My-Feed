@@ -6,8 +6,6 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.am.my_feed.article.Article;
-
 import java.util.List;
 
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;

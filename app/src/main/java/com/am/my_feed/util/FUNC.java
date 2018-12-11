@@ -11,9 +11,7 @@ import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.content.ContextCompat;
 
 import com.am.my_feed.R;
-import com.am.my_feed.article.Article;
-
-import static com.am.my_feed.util.CONST.EXTRA_ARTICLE;
+import com.am.my_feed.room.Article;
 
 public abstract class FUNC {
     public static void openUrlInChromeCustomTab(Context context, Article article, String url) {
@@ -28,7 +26,7 @@ public abstract class FUNC {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, "http://www.codepath.com");
         Bundle bundle = new Bundle();
-        bundle.putParcelable(EXTRA_ARTICLE, article);
+//        bundle.putParcelable(EXTRA_ARTICLE, article);
         intent.putExtras(bundle);
         int requestCode = 100;
 

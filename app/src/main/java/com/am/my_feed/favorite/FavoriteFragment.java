@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.am.my_feed.R;
-import com.am.my_feed.article.Article;
+import com.am.my_feed.room.Article;
 import com.am.my_feed.databinding.FragmentFavoriteBinding;
 import com.am.my_feed.feed.FeedAdapter;
 import com.am.my_feed.util.BaseFragment;

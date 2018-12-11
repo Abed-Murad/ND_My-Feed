@@ -6,8 +6,6 @@ import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-import com.am.my_feed.article.Article;
-
 import java.util.List;
 
 public class ArticleListViewModel extends AndroidViewModel {

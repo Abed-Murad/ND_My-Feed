@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.am.my_feed.R;
-import com.am.my_feed.article.Article;
+import com.am.my_feed.room.Article;
 import com.am.my_feed.article.ArticleList;
 import com.am.my_feed.databinding.ActivitySearchResultsBinding;
 import com.am.my_feed.feed.FeedAdapter;

@@ -4,7 +4,7 @@
 
         <variable
             name="article"
-            type="com.am.my_feed.article.Article" />
+            type="com.am.my_feed.room.Article" />
     </data>
 
 

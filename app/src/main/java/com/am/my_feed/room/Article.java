@@ -1,17 +1,21 @@
-package com.am.my_feed.article;
+package com.am.my_feed.room;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
-import android.os.Parcel;
-import android.os.Parcelable;
 
+import com.am.my_feed.article.Source;
 import com.google.gson.annotations.SerializedName;
+
+import org.jetbrains.annotations.NotNull;
+
 @Entity
-public class Article implements Parcelable {
+public class Article  {
     @SerializedName("content")
     private String content;
     @PrimaryKey
     @SerializedName("publishedAt")
+    @NotNull
     private String publishedAt;
     @SerializedName("author")
     private String author;
@@ -20,8 +24,10 @@ public class Article implements Parcelable {
     @SerializedName("title")
     private String title;
     @SerializedName("source")
+    @Ignore
     private Source source;
     @SerializedName("description")
+    @Ignore
     private String description;
     @SerializedName("url")
     private String url;
@@ -113,27 +119,12 @@ public class Article implements Parcelable {
                 +", title = "+title+", source = "+source+", description = "+description+", url = "+url+"]";
     }
 
-    protected Article(Parcel in) {
+    public Article() {
     }
 
-    public static final Creator<Article> CREATOR = new Creator<Article>() {
-        @Override
-        public Article createFromParcel(Parcel in) {
-            return new Article(in);
-        }
-
-        @Override
-        public Article[] newArray(int size) {
-            return new Article[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public Article(@NotNull String publishedAt, String urlToImage, String title) {
+        this.publishedAt = publishedAt;
+        this.urlToImage = urlToImage;
+        this.title = title;
     }
 }

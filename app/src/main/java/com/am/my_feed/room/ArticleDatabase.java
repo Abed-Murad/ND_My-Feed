@@ -5,8 +5,6 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.am.my_feed.article.Article;
-
 @Database(entities = Article.class, version = 1)
 public abstract class ArticleDatabase extends RoomDatabase {
 

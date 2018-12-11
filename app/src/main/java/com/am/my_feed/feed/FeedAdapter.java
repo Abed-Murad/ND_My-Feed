@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.am.my_feed.article.Article;
+import com.am.my_feed.room.Article;
 import com.am.my_feed.databinding.CardFeedArticleBinding;
 import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
@@ -91,7 +91,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         //TODO: use this method in the real project data not the parameter-less onItemClick()
         void onItemClick(View view, int position, Article model);
 
-        void onBookmarkButtonClick();
+        void onBookmarkButtonClick(Article model);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

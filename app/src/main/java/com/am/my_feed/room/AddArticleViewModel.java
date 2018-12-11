@@ -5,8 +5,6 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-import com.am.my_feed.article.Article;
-
 public class AddArticleViewModel extends AndroidViewModel {
     private ArticleDatabase articleDatabase;
 

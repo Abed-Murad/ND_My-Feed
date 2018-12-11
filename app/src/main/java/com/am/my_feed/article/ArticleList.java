@@ -1,5 +1,6 @@
 package com.am.my_feed.article;
 
+import com.am.my_feed.room.Article;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
