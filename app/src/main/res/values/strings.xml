@@ -41,6 +41,11 @@
     <string name="title_filters">Filters</string>
     <string name="label_action">Save</string>
     <string name="label_category">feed_category</string>
+    <string name="content_description_SettingsImageView">Settings Icon</string>
+    <string name="content_description_InfoImageView">Info Icon</string>
+    <string name="content_description_profileImageView">User Avatar</string>
+    <string name="content_description_arcileImageView">Arcile Cover Image</string>
+    <string name="content_description_timeImageView">Time Icon</string>
 
 
 </resources>

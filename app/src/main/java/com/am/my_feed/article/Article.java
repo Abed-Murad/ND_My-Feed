@@ -1,13 +1,16 @@
 package com.am.my_feed.article;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
-
+@Entity
 public class Article implements Parcelable {
     @SerializedName("content")
     private String content;
+    @PrimaryKey
     @SerializedName("publishedAt")
     private String publishedAt;
     @SerializedName("author")

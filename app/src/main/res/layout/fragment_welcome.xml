@@ -18,6 +18,7 @@
             <ImageView
                 android:id="@+id/icon"
                 android:layout_width="100dp"
+                android:contentDescription="@string/content_description_profileImageView"
                 android:layout_height="82dp"
                 android:tint="@color/colorPrimary"
                 android:layout_marginStart="8dp"
