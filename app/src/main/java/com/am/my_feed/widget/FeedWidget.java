@@ -28,7 +28,14 @@ public class FeedWidget extends AppWidgetProvider {
 
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.feed_widget);
-        views.setTextViewText(R.id.articleTextView, widgetText);
+        views.setTextViewText(R.id.appwidget_text, widgetText);
+
+        // Create an Intent to launch ExampleActivity
+        Intent intent = new Intent(context, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+
+        views.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent);
+
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -39,19 +46,6 @@ public class FeedWidget extends AppWidgetProvider {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
-
-            // Create an Intent to launch ExampleActivity
-            Intent intent = new Intent(context, MainActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-
-            // Get the layout for the App Widget and attach an on-click listener
-            // to the button
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.feed_widget);
-            views.setOnClickPendingIntent(R.id.button, pendingIntent);
-
-            // Tell the AppWidgetManager to perform an update on the current app widget
-            appWidgetManager.updateAppWidget(appWidgetId, views);
-
 
         }
     }
