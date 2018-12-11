@@ -30,15 +30,17 @@
             android:text="@string/title_filters"
             android:textSize="@dimen/large"
             android:layout_marginTop="16dp"
+            android:visibility="gone"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
 
-        <TextView
+        <com.firebase.ui.auth.ui.phone.CountryListSpinner
             android:id="@+id/langiageTextView"
             style="@style/searchFiltersBtn"
+            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_profile_text"
@@ -56,6 +58,7 @@
             android:drawableStart="@drawable/ic_news"
             android:text="@string/title_sources"
             app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/langiageTextView" />
@@ -63,6 +66,7 @@
         <TextView
             android:id="@+id/categoriesTextView"
             style="@style/searchFiltersBtn"
+            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_category"

@@ -12,9 +12,15 @@ import com.am.my_feed.R;
 import com.am.my_feed.databinding.FragmentProfileBinding;
 import com.am.my_feed.settings.SettingsActivity;
 import com.am.my_feed.util.BaseFragment;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends BaseFragment {
     private static final String ARG_PARAM2 = "param2";
+
+    private FirebaseUser mFirebaseUser;
     private FragmentProfileBinding mBinding;
     private String mTitleParam;
     private String mParam2;
@@ -41,6 +47,7 @@ public class ProfileFragment extends BaseFragment {
             mTitleParam = getArguments().getString(ARG_TITLE);
             onFragmentInteraction(mTitleParam);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         }
     }
 
@@ -48,6 +55,10 @@ public class ProfileFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
+        Glide.with(getContext()).load(mFirebaseUser.getPhotoUrl()+ "?sz=500").apply(RequestOptions.circleCropTransform())
+                .into(mBinding.userImageView);
+        mBinding.setUser(mFirebaseUser);
+        mBinding.executePendingBindings();
         mBinding.settingsImageView.setOnClickListener(v -> {
             Intent settingsIntent = new Intent(getActivity(), SettingsActivity.class);
             startActivity(settingsIntent);
@@ -81,4 +92,5 @@ public class ProfileFragment extends BaseFragment {
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String title);
-    }}
+    }
+}

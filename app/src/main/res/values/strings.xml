@@ -40,6 +40,7 @@
     <string name="title_language">Language</string>
     <string name="title_filters">Filters</string>
     <string name="label_action">Save</string>
+    <string name="label_category">feed_category</string>
 
 
 </resources>

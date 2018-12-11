@@ -14,6 +14,12 @@
         <argument
             android:name="title"
             android:defaultValue="@string/title_my_feed" />
+
+        <argument
+            android:name="category"
+            android:defaultValue="general" />
+
+
     </fragment>
     <fragment
         android:id="@+id/navigation_headlines"

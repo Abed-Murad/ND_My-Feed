@@ -40,8 +40,8 @@ public abstract class FUNC {
         CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder()
                 .setToolbarColor(ContextCompat.getColor(context, R.color.colorAccent))
                 .addDefaultShareMenuItem()
-                .setActionButton(bookmarkIconBitmap, "Share Link", pendingIntent, true)
-                .addToolbarItem(1, shareIconBitmap, "Share Link", pendingIntent)
+//                .setActionButton(bookmarkIconBitmap, "Share Link", pendingIntent, true)
+//                .addToolbarItem(1, shareIconBitmap, "Share Link", pendingIntent)
                 .enableUrlBarHiding()
                 .setShowTitle(true)
                 .build();
