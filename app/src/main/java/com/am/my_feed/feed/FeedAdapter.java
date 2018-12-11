@@ -49,9 +49,9 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         if (holder instanceof ViewHolder && mArticleList != null) {
             if (mArticleList.size() != 0) {
-            final Article article = getItem(position);
-            ViewHolder viewHolder = (ViewHolder) holder;
-            viewHolder.bindData(article);
+                final Article article = getItem(position);
+                ViewHolder viewHolder = (ViewHolder) holder;
+                viewHolder.bindData(article);
             }
 
         }
@@ -101,6 +101,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(itemView.getRoot());
             this.mBinding = itemView;
             mBinding.getRoot().setOnClickListener(view -> mArticleClickListener.onItemClick(mBinding.getRoot(), getAdapterPosition(), getItem(getAdapterPosition())));//TODO: Remove this Dummy Data
+            mBinding.addToFavoriteFab.setOnClickListener(view -> mArticleClickListener.onBookmarkButtonClick(getItem(getAdapterPosition())));//TODO: Remove this Dummy Data
 
         }
 

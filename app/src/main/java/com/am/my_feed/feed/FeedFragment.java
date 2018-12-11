@@ -15,6 +15,7 @@ import com.am.my_feed.article.ArticleList;
 import com.am.my_feed.databinding.FragmentFeedBinding;
 import com.am.my_feed.room.AddArticleViewModel;
 import com.am.my_feed.room.Article;
+import com.am.my_feed.room.ArticleListViewModel;
 import com.am.my_feed.util.BaseFragment;
 import com.am.my_feed.util.FUNC;
 import com.orhanobut.logger.Logger;
@@ -26,7 +27,9 @@ import retrofit2.Response;
 
 public class FeedFragment extends BaseFragment {
     private static final String ARG_FEED_CATEGORY = "feed_category";
-    private AddArticleViewModel addNoteViewModel;
+
+    private ArticleListViewModel articleListViewModel;
+    private AddArticleViewModel addArticleViewModel;
 
     private FragmentFeedBinding mBinding;
     private RecyclerView mFeedRecyclerView;
@@ -66,7 +69,10 @@ public class FeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false);
         mFeedRecyclerView = mBinding.userFeedRecyclerView;
-        addNoteViewModel = ViewModelProviders.of(this).get(AddArticleViewModel.class);
+        addArticleViewModel = ViewModelProviders.of(this).get(AddArticleViewModel.class);
+
+        articleListViewModel.getArticlesList().observe(getActivity(), notes -> Logger.d(notes));
+
 
         mFeedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mFeedRecyclerView.setHasFixedSize(true);
@@ -78,10 +84,11 @@ public class FeedFragment extends BaseFragment {
 
             @Override
             public void onBookmarkButtonClick(Article article) {
-                addNoteViewModel.addArticle(new Article(article.getPublishedAt(), article.getUrlToImage(), article.getTitle()));
+                addArticleViewModel.addArticle(new Article(article.getPublishedAt(), article.getUrlToImage(), article.getTitle()));
 
             }
         });
+
         apiService.getHeadlines("us", mFeedCategory).enqueue(new Callback<ArticleList>() {
             @Override
             public void onResponse(Call<ArticleList> call, Response<ArticleList> response) {

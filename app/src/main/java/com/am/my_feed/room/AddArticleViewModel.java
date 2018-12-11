@@ -14,7 +14,6 @@ public class AddArticleViewModel extends AndroidViewModel {
     }
 
     public void addArticle(Article article) {
-
         new AddAsyncTask(articleDatabase).execute(article);
     }
 
