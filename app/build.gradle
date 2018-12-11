@@ -6,7 +6,7 @@ android {
     signingConfigs {
         config {
             keyAlias 'key0'
-            storeFile file ("C:/AS_Projects/MyFeed/keystore.jks")
+            storeFile file ("C:/AS_Projects/MyFeed/storekey.jks")
             keyPassword 'pass123'
             storePassword 'pass123'
         }
