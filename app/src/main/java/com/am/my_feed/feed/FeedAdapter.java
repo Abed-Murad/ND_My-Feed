@@ -36,8 +36,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case TYPE_ITEM: {
-                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-                CardFeedArticleBinding cardBinding = CardFeedArticleBinding.inflate(inflater, parent, false);
+                CardFeedArticleBinding cardBinding = CardFeedArticleBinding.inflate(mInflater, parent, false);
                 return new ViewHolder(cardBinding);
             }
         }
