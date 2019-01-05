@@ -35,19 +35,15 @@
     <string name="title_activity_article_details">ArticleDetailsActivity</string>
     <string name="description_profile_image">User Image</string>
     <string name="hint_search">Search News</string>
-    <string name="title_activity_search_results2">SearchResultsActivity2</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_language">Language</string>
     <string name="title_filters">Filters</string>
-    <string name="label_action">Save</string>
-    <string name="label_category">feed_category</string>
     <string name="content_description_SettingsImageView">Settings Icon</string>
     <string name="content_description_InfoImageView">Info Icon</string>
     <string name="content_description_profileImageView">User Avatar</string>
     <string name="content_description_arcileImageView">Arcile Cover Image</string>
     <string name="content_description_timeImageView">Time Icon</string>
     <string name="appwidget_text">Open My Feed</string>
-    <string name="add_widget">Add widget</string>
 
 
 </resources>
