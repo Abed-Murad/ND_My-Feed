@@ -42,7 +42,6 @@ public class SearchFragment extends BaseFragment {
         if (getArguments() != null) {
             mTitleParam = getArguments().getString(ARG_TITLE);
             onFragmentInteraction(mTitleParam);
-
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
